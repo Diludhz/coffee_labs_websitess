@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from 'react';
-import { FaArrowRight } from 'react-icons/fa';
 import '../styles/SuccessPartners.css';
 
 const SuccessPartners = () => {

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FiArrowRight } from 'react-icons/fi';
 import '../styles/TopCategories.css';
 
 const TopCategories = () => {

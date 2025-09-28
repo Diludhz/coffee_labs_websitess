@@ -97,7 +97,7 @@ const Header = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [location.pathname]);
+  }, [location.pathname, location.hash, sections]);
 
   return (
     <header className={`header ${scrolled ? 'scrolled' : ''}`}>

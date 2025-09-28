@@ -52,8 +52,10 @@ const AppDownload = () => {
 
             <div className="download-buttons">
               <a 
-                href="#" 
+                href="https://apps.apple.com" 
                 className="download-btn app-store"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Download on the App Store"
               >
                 <div className="btn-inner">
@@ -66,8 +68,10 @@ const AppDownload = () => {
                 <div className="btn-glow"></div>
               </a>
               <a 
-                href="#" 
+                href="https://play.google.com" 
                 className="download-btn play-store"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Get it on Google Play"
               >
                 <div className="btn-inner">
