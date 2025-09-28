@@ -1,0 +1,148 @@
+/* Footer Styles */
+.footer {
+  background-color: #2D3142;
+  color: #f8f9fa;
+  padding: 3rem 0 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.footer-section {
+  margin-bottom: 2rem;
+}
+
+.footer h3 {
+  color: #EF8354;
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+.footer h3::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 50px;
+  height: 3px;
+  background: #EF8354;
+}
+
+.contact-info li,
+.business-hours li {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.contact-info svg,
+.business-hours svg {
+  margin-right: 10px;
+  color: #EF8354;
+  min-width: 20px;
+  margin-top: 3px;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.75rem;
+}
+
+.footer-links a {
+  color: #f8f9fa;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  display: inline-block;
+  position: relative;
+}
+
+.footer-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: #EF8354;
+  transition: width 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #EF8354;
+}
+
+.footer-links a:hover::after {
+  width: 100%;
+}
+
+.social-media {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.social-icon {
+  font-size: 1.5rem;
+  color: #f8f9fa;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icon:hover {
+  color: #EF8354;
+  transform: translateY(-3px);
+}
+
+.footer-bottom {
+  background-color: #1a1d2b;
+  padding: 1.5rem 0;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.footer-bottom p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #adb5bd;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .footer-section {
+    text-align: center;
+  }
+  
+  .footer h3::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .contact-info li,
+  .business-hours li {
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .social-media {
+    justify-content: center;
+  }
+}

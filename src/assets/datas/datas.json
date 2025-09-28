@@ -1,0 +1,82 @@
+{
+    
+"app_logo": [
+    {"id": 1, "logo": "src/assets/logo.png"}
+  ],
+"hero_image":[
+    {"id": 1, "image": "src/assets/hero.jpg"}
+],
+
+  "partners": [
+      { "id": 1, "name": "Barns", "logo": "src/assets/public/barns.jpg" },
+      { "id": 2, "name": "DeLonghi", "logo": "src/assets/public/delonghi.png" },
+      {"id": 3, "name": "Nescafe", "logo": "nescafe.png"},
+      {"id": 4, "name": "Giffard", "logo": "liqueurs-&-sirops-giffard.png"},  
+      { "id": 5, "name": "Torani", "logo": "torani.png" },
+      { "id": 6, "name": "Kimbo", "logo": "kimbo.webp" },
+      { "id": 7, "name": "Black Knight", "logo": "black-knight.png" },
+      { "id": 8, "name": "Soil", "logo": "soil.png" },
+      { "id": 9, "name": "Kiffa", "logo": "kiffa.jpeg" },
+      { "id": 10, "name": "La Cimbali", "logo": "lacimbali.png" },
+      { "id": 11, "name": "Intenso", "logo": "intenso-logo1.jpg" },
+      { "id": 12, "name": "Suwaa", "logo": "suwaa.jpeg" },
+      { "id": 13, "name": "Herco Foods", "logo": "herco-foods.webp" },
+      { "id": 14, "name": "Hario", "logo": "hario.webp" },
+      { "id": 15, "name": "Illy", "logo": "illy.png" }
+    ],
+  
+    "categories": [
+      { "id": 1, "name": "Coffee Beans", "image": "coffee-beans.jpg" },
+      { "id": 2, "name": "Syrups", "image": "syrups.jpg" },
+      { "id": 3, "name": "Coffee Machines", "image": "machines.jpg" },
+      { "id": 4, "name": "Accessories", "image": "accessories.jpg" },
+      { "id": 5, "name": "Filters", "image": "filters.jpg" },
+      { "id": 6, "name": "Tea & Infusions", "image": "tea.jpg" },
+      { "id": 7, "name": "Milk Powders", "image": "milk-powder.jpg" },
+      { "id": 8, "name": "Chocolate & Cocoa", "image": "chocolate.jpg" },
+      { "id": 9, "name": "Cups & Mugs", "image": "cups.jpg" },
+      { "id": 10, "name": "Grinders", "image": "grinders.jpg" },
+      { "id": 11, "name": "Cleaning Products", "image": "cleaning.jpg" },
+      { "id": 12, "name": "Sweeteners", "image": "sweeteners.jpg" },
+      { "id": 13, "name": "Sauces", "image": "sauces.jpg" },
+      { "id": 14, "name": "Powder Mixes", "image": "powder-mixes.jpg" },
+      { "id": 15, "name": "Gift Packs", "image": "gift-packs.jpg" }
+    ],
+  
+    "products": [
+      { "id": 1, "name": "Arabica Coffee Beans", "price": 55, "image": "arabica.jpg", "category": "Coffee Beans" },
+      { "id": 2, "name": "Espresso Blend", "price": 48, "image": "espresso.jpg", "category": "Coffee Beans" },
+      { "id": 3, "name": "Monin Vanilla Syrup", "price": 25, "image": "vanilla-syrup.jpg", "category": "Syrups" },
+      { "id": 4, "name": "Monin Caramel Syrup", "price": 25, "image": "caramel-syrup.jpg", "category": "Syrups" },
+      { "id": 5, "name": "Delonghi Coffee Machine", "price": 850, "image": "delonghi-machine.jpg", "category": "Coffee Machines" },
+      { "id": 6, "name": "French Press", "price": 70, "image": "french-press.jpg", "category": "Accessories" },
+      { "id": 7, "name": "Reusable Coffee Filter", "price": 15, "image": "filter.jpg", "category": "Filters" },
+      { "id": 8, "name": "Green Tea Pack", "price": 20, "image": "green-tea.jpg", "category": "Tea & Infusions" },
+      { "id": 9, "name": "Hot Chocolate Powder", "price": 30, "image": "chocolate-powder.jpg", "category": "Chocolate & Cocoa" },
+      { "id": 10, "name": "Ceramic Mug", "price": 12, "image": "mug.jpg", "category": "Cups & Mugs" },
+      { "id": 11, "name": "Burr Coffee Grinder", "price": 150, "image": "grinder.jpg", "category": "Grinders" },
+      { "id": 12, "name": "Machine Cleaning Tablets", "price": 18, "image": "cleaning-tablets.jpg", "category": "Cleaning Products" },
+      { "id": 13, "name": "Stevia Sweetener", "price": 10, "image": "stevia.jpg", "category": "Sweeteners" },
+      { "id": 14, "name": "Hazelnut Sauce", "price": 28, "image": "hazelnut-sauce.jpg", "category": "Sauces" },
+      { "id": 15, "name": "Cappuccino Mix", "price": 22, "image": "cappuccino-mix.jpg", "category": "Powder Mixes" }
+    ],
+  
+    "boardMembers": [
+      { "id": 1, "name": "Mohammed Ali", "position": "CEO", "photo": "ceo.jpg" },
+      { "id": 2, "name": "Fatima Khan", "position": "CFO", "photo": "cfo.jpg" },
+      { "id": 3, "name": "Ahmed Saleh", "position": "COO", "photo": "coo.jpg" },
+      { "id": 4, "name": "Sara Ibrahim", "position": "CTO", "photo": "cto.jpg" },
+      { "id": 5, "name": "Omar Hassan", "position": "Marketing Director", "photo": "marketing.jpg" },
+      { "id": 6, "name": "Layla Noor", "position": "Sales Director", "photo": "sales.jpg" },
+      { "id": 7, "name": "Ali Raza", "position": "Head of Logistics", "photo": "logistics.jpg" },
+      { "id": 8, "name": "Huda Al-Farsi", "position": "HR Manager", "photo": "hr.jpg" },
+      { "id": 9, "name": "Khalid Mansour", "position": "Finance Manager", "photo": "finance.jpg" },
+      { "id": 10, "name": "Mona Youssef", "position": "Customer Support Lead", "photo": "support.jpg" },
+      { "id": 11, "name": "Yasir Jamal", "position": "Operations Lead", "photo": "operations.jpg" },
+      { "id": 12, "name": "Reem Abdullah", "position": "Creative Director", "photo": "creative.jpg" },
+      { "id": 13, "name": "Nabil Qureshi", "position": "Procurement Manager", "photo": "procurement.jpg" },
+      { "id": 14, "name": "Aisha Sultan", "position": "Legal Advisor", "photo": "legal.jpg" },
+      { "id": 15, "name": "Samir Farouk", "position": "IT Manager", "photo": "it.jpg" }
+    ]
+  }
+  

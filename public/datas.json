@@ -1,0 +1,56 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "category": "Tea & Milk",
+      "slug": "tea-milk",
+      "items": [
+        {
+          "id": "tm1",
+          "title": "Pristine Whip Topping",
+          "image": "/Assets/Products/tea-milk/pristine-whip-topping.webp",
+          "price": 12.99,
+          "stock": true,
+          "rating": 4.5,
+          "badge": "Popular",
+          "description": "Premium whipped cream topping"
+        },
+        {
+          "id": "tm2",
+          "title": "Nadec Milk",
+          "image": "/Assets/Products/tea-milk/nadec-milk.jpg",
+          "price": 8.99,
+          "stock": true,
+          "rating": 4.2,
+          "description": "Fresh dairy milk"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "category": "Coffee Beans",
+      "slug": "coffee-beans",
+      "items": [
+        {
+          "id": "cb1",
+          "title": "Arabica Coffee Beans",
+          "image": "/Assets/Products/coffee-beans/arabica.jpg",
+          "price": 15.99,
+          "stock": true,
+          "rating": 4.8,
+          "badge": "Best Seller",
+          "description": "Premium quality Arabica coffee beans"
+        },
+        {
+          "id": "cb2",
+          "title": "Robusta Coffee Beans",
+          "image": "/Assets/Products/coffee-beans/robusta.jpg",
+          "price": 12.99,
+          "stock": true,
+          "rating": 4.5,
+          "description": "Strong and bold Robusta coffee beans"
+        }
+      ]
+    }
+  ]
+}
