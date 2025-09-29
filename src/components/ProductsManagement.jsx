@@ -7,10 +7,8 @@ const ProductGrid = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [products, setProducts] = useState([]);
-  const [allProducts, setAllProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
   // Fetch products data
   useEffect(() => {
@@ -32,6 +30,9 @@ const ProductGrid = () => {
           }))
         );
 
+        // Update products and categories state
+        setProducts(flattenedProducts);
+        
         // Get categories with counts
         const categoriesData = data.products.map(category => ({
           id: category.id,
@@ -40,12 +41,11 @@ const ProductGrid = () => {
           count: category.items.length
         }));
 
-        setAllProducts(flattenedProducts);
         setProducts(flattenedProducts);
         setCategories(categoriesData);
         setLoading(false);
       } catch (err) {
-        setError(err.message);
+        console.error('Error fetching products:', err);
         setLoading(false);
       }
     };
@@ -55,7 +55,9 @@ const ProductGrid = () => {
 
   // Filter products based on search term and category
   const filteredProducts = React.useMemo(() => {
-    return allProducts.filter(product => {
+    if (loading) return [];
+    
+    return products.filter(product => {
       const matchesSearch = 
         product.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
         product.category.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -67,7 +69,7 @@ const ProductGrid = () => {
       
       return matchesSearch && matchesCategory;
     });
-  }, [searchTerm, selectedCategory, allProducts]);
+  }, [searchTerm, selectedCategory, products, loading]);
 
   const handleBuyNow = (productId) => {
     console.log(`Buy now clicked for product ${productId}`);
@@ -129,7 +131,7 @@ const ProductGrid = () => {
               onClick={() => handleCategoryChange('all')}
             >
               All Products
-              <span className="category-count">{allProducts?.length || 0}</span>
+              <span className="category-count">{products?.length || 0}</span>
             </button>
             {categories.map(category => (
               <button

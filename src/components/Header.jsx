@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import '../styles/Header.css';
-import logoImage from '../assets/logo.png'; 
+import logoImage from '../Assets/logo.png'; 
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,7 +9,6 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
-  const sections = ['home', 'about', 'products', 'equipment'];
   
   const handleNavClick = (sectionId) => {
     setActiveLink(sectionId);
@@ -54,6 +53,8 @@ const Header = () => {
 
   // Update active link based on scroll position
   useEffect(() => {
+    const sections = ['home', 'about', 'products', 'equipment'];
+    
     const handleScroll = () => {
       if (location.pathname !== '/') return;
       
@@ -97,7 +98,7 @@ const Header = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [location.pathname, location.hash, sections]);
+  }, [location.pathname, location.hash]);
 
   return (
     <header className={`header ${scrolled ? 'scrolled' : ''}`}>

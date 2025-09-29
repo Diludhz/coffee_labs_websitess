@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { FaApple, FaGooglePlay, FaCheck, FaStar, FaGift, FaMobile } from 'react-icons/fa';
 import '../styles/AppDownload.css';
-import screenshot1 from '../assets/screenshot1.jpg';
-import screenshot2 from '../assets/screenshot2.jpg';
+import screenshot1 from '../Assets/screenshot1.jpg';
+import screenshot2 from '../Assets/screenshot2.jpg';
 
 const AppDownload = () => {
   const [activeSlide, setActiveSlide] = useState(0);

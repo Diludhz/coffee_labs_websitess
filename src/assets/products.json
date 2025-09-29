@@ -1,0 +1,1022 @@
+{
+    "Products": [
+        {
+            "id": 1,
+            "category": "tea-milk",
+            "items": [
+                {
+                    "id": "tm1",
+                    "title": "Pristine Whip Topping",
+                    "image": "/Assets/Products/tea-milk/pristine-whip-topping.webp",
+                    "price": 12.99,
+                    "description": "Premium whipped cream topping"
+                },
+                {
+                    "id": "tm2",
+                    "title": "Nadec Milk",
+                    "image": "/Assets/Products/tea-milk/nadec-milk.jpg",
+                    "price": 8.99,
+                    "description": "Fresh dairy milk"
+                },
+                {
+                    "id": "tm3",
+                    "title": "Alpro Milk",
+                    "image": "/Assets/Products/tea-milk/alpro-milk.jpeg",
+                    "price": 9.99,
+                    "description": "Plant-based milk alternative"
+                },
+                {
+                    "id": "tm4",
+                    "title": "Rainbow Milk",
+                    "image": "/Assets/Products/tea-milk/rainbow-milk.jpeg",
+                    "price": 7.99,
+                    "description": "Fresh dairy milk"
+                },
+                {
+                    "id": "tm5",
+                    "title": "Nestle Condensed Milk",
+                    "image": "/Assets/Products/tea-milk/Nestle Condensed Milk.jpeg",
+                    "price": 5.99,
+                    "description": "Sweetened condensed milk"
+                },
+                {
+                    "id": "tm6",
+                    "title": "Khadeer Tea",
+                    "image": "/Assets/Products/tea-milk/KHADEER-TEA.jpg",
+                    "price": 15.99,
+                    "description": "Premium black tea"
+                },
+                {
+                    "id": "tm7",
+                    "title": "Twinings Tea",
+                    "image": "/Assets/Products/tea-milk/twinnings-tea.jpeg",
+                    "price": 12.99,
+                    "description": "Classic English tea"
+                },
+                {
+                    "id": "tm8",
+                    "title": "Abu Jabal Tea",
+                    "image": "/Assets/Products/tea-milk/abu-jabal.jpeg",
+                    "price": 11.99,
+                    "description": "Traditional Arabic tea"
+                },
+                {
+                    "id": "tm9",
+                    "title": "Al Rabee Tea",
+                    "image": "/Assets/Products/tea-milk/al-rabee-tea.jpeg",
+                    "price": 10.99,
+                    "description": "Premium Arabic tea"
+                },
+                {
+                    "id": "tm10",
+                    "title": "Dilmah Tea",
+                    "image": "/Assets/Products/tea-milk/dilmah-tea.jpeg",
+                    "price": 13.99,
+                    "description": "Sri Lankan black tea"
+                },
+                {
+                    "id": "tm11",
+                    "title": "Kabous Green Tea",
+                    "image": "/Assets/Products/tea-milk/kabous-green-tea.jpeg",
+                    "price": 14.99,
+                    "description": "Premium green tea"
+                },
+                {
+                    "id": "tm12",
+                    "title": "Al-Kbous Tea Bags",
+                    "image": "/Assets/Products/tea-milk/Al-Kbous Tea Bags 100 Ct.jpeg",
+                    "price": 16.99,
+                    "description": "100 count tea bags"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "category": "spreads",
+            "items": [
+                {
+                    "id": "sp1",
+                    "title": "Herco Hazelnut Paste",
+                    "image": "/Assets/Products/spreads/herco-hazalnuts-paste-.jpeg",
+                    "price": 14.99,
+                    "description": "Premium hazelnut spread"
+                },
+                {
+                    "id": "sp2",
+                    "title": "Nutella",
+                    "image": "/Assets/Products/spreads/nutella.jpeg",
+                    "price": 16.99,
+                    "description": "Classic hazelnut chocolate spread"
+                },
+                {
+                    "id": "sp3",
+                    "title": "Doblen Chocolate Spread",
+                    "image": "/Assets/Products/spreads/doblen-spread-chocolate.webp",
+                    "price": 13.99,
+                    "description": "Rich chocolate spread"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "category": "coffee-machines",
+            "items": [
+                {
+                    "id": "cm1",
+                    "title": "LaCimbali M23UP",
+                    "image": "/Assets/Products/coffee-machines/LaCimbali M23UP.jpeg",
+                    "price": 2999.99,
+                    "description": "Professional espresso machine"
+                },
+                {
+                    "id": "cm2",
+                    "title": "DeLonghi La Specialista",
+                    "image": "/Assets/Products/coffee-machines/DeLonghi-la-LaSpecialista.jpeg",
+                    "price": 899.99,
+                    "description": "Automatic espresso machine"
+                },
+                {
+                    "id": "cm3",
+                    "title": "Omniblend V",
+                    "image": "/Assets/Products/coffee-machines/omniblend V.jpeg",
+                    "price": 799.99,
+                    "description": "Professional blender"
+                },
+                {
+                    "id": "cm4",
+                    "title": "Behmor Coffee Machine",
+                    "image": "/Assets/Products/coffee-machines/behmor-coffee-machine.jpeg",
+                    "price": 599.99,
+                    "description": "Home coffee roaster"
+                },
+                {
+                    "id": "cm5",
+                    "title": "Casadio Enea",
+                    "image": "/Assets/Products/coffee-machines/casadio-enea.jpeg",
+                    "price": 1499.99,
+                    "description": "Professional espresso machine"
+                },
+                {
+                    "id": "cm6",
+                    "title": "Bunn Coffee Machine",
+                    "image": "/Assets/Products/coffee-machines/bunn coffee-ma.jpeg",
+                    "price": 699.99,
+                    "description": "Commercial coffee brewer"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "category": "cleaners-filters",
+            "items": [
+                {
+                    "id": "cf1",
+                    "title": "Cafetto Espresso Clean",
+                    "image": "/Assets/Products/cleaners-filters/Cafetto Espresso Clean.jpeg",
+                    "price": 24.99,
+                    "description": "Espresso machine cleaner"
+                },
+                {
+                    "id": "cf2",
+                    "title": "PULY Caff Plus Powder",
+                    "image": "/Assets/Products/cleaners-filters/PULY Caff Plus Powder .jpeg",
+                    "price": 19.99,
+                    "description": "Coffee machine cleaning powder"
+                },
+                {
+                    "id": "cf3",
+                    "title": "Hario Filter",
+                    "image": "/Assets/Products/cleaners-filters/hario.jpeg",
+                    "price": 15.99,
+                    "description": "Premium coffee filter"
+                },
+                {
+                    "id": "cf4",
+                    "title": "Cafec Filter",
+                    "image": "/Assets/Products/cleaners-filters/cafec.jpeg",
+                    "price": 16.99,
+                    "description": "Professional coffee filter"
+                },
+                {
+                    "id": "cf5",
+                    "title": "Pure Drop Filter",
+                    "image": "/Assets/Products/cleaners-filters/pure drop.jpeg",
+                    "price": 14.99,
+                    "description": "Water filtration system"
+                },
+                {
+                    "id": "cf6",
+                    "title": "Puly Cleaner",
+                    "image": "/Assets/Products/cleaners-filters/puly.jpeg",
+                    "price": 18.99,
+                    "description": "Coffee machine cleaner"
+                },
+                {
+                    "id": "cf7",
+                    "title": "Cafetto Box",
+                    "image": "/Assets/Products/cleaners-filters/cafetto-box.png",
+                    "price": 29.99,
+                    "description": "Complete cleaning kit"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "category": "chocolate-chip",
+            "items": [
+                {
+                    "id": "cc1",
+                    "title": "Candy Moon Dark Chocolate",
+                    "image": "/Assets/Products/chocolate-chip/candy-moon-dark-chocolate.png",
+                    "price": 12.99,
+                    "description": "Premium dark chocolate chips"
+                },
+                {
+                    "id": "cc2",
+                    "title": "Herco Crispy Flakes",
+                    "image": "/Assets/Products/chocolate-chip/herco-crispy-flakes.png",
+                    "price": 14.99,
+                    "description": "Chocolate crispy flakes"
+                },
+                {
+                    "id": "cc3",
+                    "title": "Sablon Chocolate",
+                    "image": "/Assets/Products/chocolate-chip/sablon.jpeg",
+                    "price": 13.99,
+                    "description": "Premium chocolate chips"
+                },
+                {
+                    "id": "cc4",
+                    "title": "Dawn Mix",
+                    "image": "/Assets/Products/chocolate-chip/dawn-mix.jpeg",
+                    "price": 15.99,
+                    "description": "Mixed chocolate chips"
+                },
+                {
+                    "id": "cc5",
+                    "title": "Candy Moon",
+                    "image": "/Assets/Products/chocolate-chip/candy-moon.jpeg",
+                    "price": 11.99,
+                    "description": "Classic chocolate chips"
+                },
+                {
+                    "id": "cc6",
+                    "title": "Herco Foods",
+                    "image": "/Assets/Products/chocolate-chip/herco-foods.jpeg",
+                    "price": 16.99,
+                    "description": "Premium chocolate products"
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "category": "accessories",
+            "items": [
+                {
+                    "id": "ac1",
+                    "title": "Knock Tube",
+                    "image": "/Assets/Products/accessories/knock-tube.png",
+                    "price": 29.99,
+                    "description": "Coffee grounds knock box"
+                },
+                {
+                    "id": "ac2",
+                    "title": "Portafilter",
+                    "image": "/Assets/Products/accessories/Portafilter.jpeg",
+                    "price": 49.99,
+                    "description": "Professional portafilter"
+                },
+                {
+                    "id": "ac3",
+                    "title": "Barista Cloth Set",
+                    "image": "/Assets/Products/accessories/barista-cloth-set.jpeg",
+                    "price": 19.99,
+                    "description": "Professional barista cleaning cloths"
+                },
+                {
+                    "id": "ac4",
+                    "title": "Electronic Scale",
+                    "image": "/Assets/Products/accessories/electronic-scale.jpeg",
+                    "price": 39.99,
+                    "description": "Precision coffee scale"
+                },
+                {
+                    "id": "ac5",
+                    "title": "Thermometer",
+                    "image": "/Assets/Products/accessories/thermometer.jpeg",
+                    "price": 24.99,
+                    "description": "Digital coffee thermometer"
+                },
+                {
+                    "id": "ac6",
+                    "title": "Group Head Brush",
+                    "image": "/Assets/Products/accessories/group-head-brush.jpeg",
+                    "price": 9.99,
+                    "description": "Cleaning brush for espresso machine group head"
+                },
+                {
+                    "id": "ac7",
+                    "title": "Grinder Brush",
+                    "image": "/Assets/Products/accessories/grinder-brush.jpeg",
+                    "price": 8.99,
+                    "description": "Cleaning brush for coffee grinders"
+                },
+                {
+                    "id": "ac8",
+                    "title": "Bottomless Portafilter",
+                    "image": "/Assets/Products/accessories/botomless-portafilter.jpeg",
+                    "price": 59.99,
+                    "description": "Bottomless portafilter for better extraction visibility"
+                },
+                {
+                    "id": "ac9",
+                    "title": "Measuring Spoon",
+                    "image": "/Assets/Products/accessories/measureing-spoon.jpeg",
+                    "price": 7.99,
+                    "description": "Precision coffee measuring spoon"
+                },
+                {
+                    "id": "ac10",
+                    "title": "Scoop Tamper",
+                    "image": "/Assets/Products/accessories/scoop-temper.jpeg",
+                    "price": 14.99,
+                    "description": "Combination scoop and tamper tool"
+                },
+                {
+                    "id": "ac11",
+                    "title": "Temperature Tag",
+                    "image": "/Assets/Products/accessories/temptag.jpg",
+                    "price": 5.99,
+                    "description": "Temperature indicator for milk frothing"
+                },
+                {
+                    "id": "ac12",
+                    "title": "Distributor",
+                    "image": "/Assets/Products/accessories/distrubuter.jpeg",
+                    "price": 34.99,
+                    "description": "Coffee grounds distributor for even tamping"
+                },
+                {
+                    "id": "ac13",
+                    "title": "Black Cloth Set",
+                    "image": "/Assets/Products/accessories/black-cloth-set.jpeg",
+                    "price": 18.99,
+                    "description": "Professional black barista cleaning cloths"
+                },
+                {
+                    "id": "ac14",
+                    "title": "Measuring Glass",
+                    "image": "/Assets/Products/accessories/measure-glass.jpeg",
+                    "price": 12.99,
+                    "description": "Precision measuring glass for coffee"
+                },
+                {
+                    "id": "ac15",
+                    "title": "Filter Bowl",
+                    "image": "/Assets/Products/accessories/filter-bowl.jpeg",
+                    "price": 15.99,
+                    "description": "Coffee filter bowl for pour-over brewing"
+                },
+                {
+                    "id": "ac16",
+                    "title": "Sharing Pot",
+                    "image": "/Assets/Products/accessories/sharing-pot.jpeg",
+                    "price": 22.99,
+                    "description": "Coffee sharing pot for multiple servings"
+                },
+                {
+                    "id": "ac17",
+                    "title": "WD Tool",
+                    "image": "/Assets/Products/accessories/WD-tool.jpeg",
+                    "price": 19.99,
+                    "description": "Multi-purpose coffee tool"
+                },
+                {
+                    "id": "ac18",
+                    "title": "Hand Grinder",
+                    "image": "/Assets/Products/accessories/hand-grinder.jpeg",
+                    "price": 45.99,
+                    "description": "Manual coffee grinder for portable brewing"
+                },
+                {
+                    "id": "ac19",
+                    "title": "Timer",
+                    "image": "/Assets/Products/accessories/timer.jpeg",
+                    "price": 12.99,
+                    "description": "Coffee brewing timer"
+                },
+                {
+                    "id": "ac20",
+                    "title": "Corner Tamping Mat",
+                    "image": "/Assets/Products/accessories/corner-tamping-mat.jpeg",
+                    "price": 9.99,
+                    "description": "Corner tamping mat for espresso preparation"
+                },
+                {
+                    "id": "ac21",
+                    "title": "Tamper",
+                    "image": "/Assets/Products/accessories/tamper.jpeg",
+                    "price": 29.99,
+                    "description": "Professional coffee tamper"
+                },
+                {
+                    "id": "ac22",
+                    "title": "Hand Pour Pot",
+                    "image": "/Assets/Products/accessories/hand-pour-pot.jpeg",
+                    "price": 34.99,
+                    "description": "Gooseneck kettle for pour-over coffee"
+                },
+                {
+                    "id": "ac23",
+                    "title": "Dosing Cup",
+                    "image": "/Assets/Products/accessories/dosing-cup.jpeg",
+                    "price": 14.99,
+                    "description": "Coffee dosing cup for consistent measurements"
+                },
+                {
+                    "id": "ac24",
+                    "title": "Frothing Pitcher",
+                    "image": "/Assets/Products/accessories/frothing-pitcher.jpeg",
+                    "price": 24.99,
+                    "description": "Professional milk frothing pitcher"
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "category": "packing",
+            "items": [
+                {
+                    "id": "pk1",
+                    "title": "Cold Brew Bottle",
+                    "image": "/Assets/Products/packing/cold-brew-bottle.jpeg",
+                    "price": 14.99,
+                    "description": "Reusable cold brew bottle"
+                },
+                {
+                    "id": "pk2",
+                    "title": "Fork Spoon Set",
+                    "image": "/Assets/Products/packing/fork-spoon-set.jpeg",
+                    "price": 9.99,
+                    "description": "Disposable cutlery set"
+                },
+                {
+                    "id": "pk3",
+                    "title": "Paper Cups",
+                    "image": "/Assets/Products/packing/paper-cup-2.jpeg",
+                    "price": 12.99,
+                    "description": "Disposable paper cups"
+                },
+                {
+                    "id": "pk4",
+                    "title": "Cash Roll",
+                    "image": "/Assets/Products/packing/cash-roll.jpeg",
+                    "price": 8.99,
+                    "description": "Cash register paper roll"
+                },
+                {
+                    "id": "pk5",
+                    "title": "Bank Roll",
+                    "image": "/Assets/Products/packing/bank-roll.jpeg",
+                    "price": 7.99,
+                    "description": "Bank paper roll"
+                },
+                {
+                    "id": "pk6",
+                    "title": "Paper Bag",
+                    "image": "/Assets/Products/packing/paper-bag.jpeg",
+                    "price": 11.99,
+                    "description": "Disposable paper bags"
+                },
+                {
+                    "id": "pk7",
+                    "title": "Straws",
+                    "image": "/Assets/Products/packing/strew.jpeg",
+                    "price": 6.99,
+                    "description": "Disposable straws"
+                },
+                {
+                    "id": "pk8",
+                    "title": "Cake Box",
+                    "image": "/Assets/Products/packing/cake-box.jpeg",
+                    "price": 13.99,
+                    "description": "Cake packaging box"
+                },
+                {
+                    "id": "pk9",
+                    "title": "Plastic Bags",
+                    "image": "/Assets/Products/packing/plastic-bags.jpeg",
+                    "price": 10.99,
+                    "description": "Disposable plastic bags"
+                },
+                {
+                    "id": "pk10",
+                    "title": "Paper Cup Set 1",
+                    "image": "/Assets/Products/packing/paper-cup-3.jpeg",
+                    "price": 11.99,
+                    "description": "Paper cup set"
+                },
+                {
+                    "id": "pk11",
+                    "title": "Paper Cup Set 2",
+                    "image": "/Assets/Products/packing/paper-cuo-1.jpeg",
+                    "price": 12.99,
+                    "description": "Paper cup set"
+                },
+                {
+                    "id": "pk12",
+                    "title": "Plastic Cup",
+                    "image": "/Assets/Products/packing/plastic-cup.jpeg",
+                    "price": 9.99,
+                    "description": "Disposable plastic cups"
+                }
+            ]
+        },
+        {
+            "id": 8,
+            "category": "coffee-powders",
+            "items": [
+                {
+                    "id": "cp1",
+                    "title": "D-B Blend Coffee Powder",
+                    "image": "/Assets/Products/coffee-powders/d-bblend-coffee-powder.jpg",
+                    "price": 24.99,
+                    "description": "Premium blended coffee powder"
+                },
+                {
+                    "id": "cp2",
+                    "title": "Monin Coffee Powder",
+                    "image": "/Assets/Products/coffee-powders/monin-coffee-powder.jpg",
+                    "price": 22.99,
+                    "description": "Premium coffee powder"
+                },
+                {
+                    "id": "cp3",
+                    "title": "Caffe D'Vitta Powder",
+                    "image": "/Assets/Products/coffee-powders/caffe-d-vitta-powder.jpg",
+                    "price": 21.99,
+                    "description": "Italian style coffee powder"
+                },
+                {
+                    "id": "cp4",
+                    "title": "Alameed Coffee Powder",
+                    "image": "/Assets/Products/coffee-powders/alameed-coffee-powders.jpg",
+                    "price": 19.99,
+                    "description": "Premium Arabic coffee powder"
+                },
+                {
+                    "id": "cp5",
+                    "title": "Just Chill Coffee Powder",
+                    "image": "/Assets/Products/coffee-powders/just-chill-coffee-powder.jpg",
+                    "price": 18.99,
+                    "description": "Cold brew coffee powder"
+                },
+                {
+                    "id": "cp6",
+                    "title": "Big Train Coffee Powder",
+                    "image": "/Assets/Products/coffee-powders/big-train-coffee-powder.jpg",
+                    "price": 23.99,
+                    "description": "Premium coffee powder"
+                },
+                {
+                    "id": "cp7",
+                    "title": "Bunna Instant Coffee",
+                    "image": "/Assets/Products/coffee-powders/bunna-instant-cofee-powder.jpg",
+                    "price": 20.99,
+                    "description": "Ethiopian instant coffee"
+                },
+                {
+                    "id": "cp8",
+                    "title": "Gusto Coffee Powder",
+                    "image": "/Assets/Products/coffee-powders/gusto-coffee-powder.jpg",
+                    "price": 17.99,
+                    "description": "Italian coffee powder"
+                },
+                {
+                    "id": "cp9",
+                    "title": "Barns Coffee Powder",
+                    "image": "/Assets/Products/coffee-powders/barns-coffee-powder.jpg",
+                    "price": 19.99,
+                    "description": "Premium coffee powder"
+                },
+                {
+                    "id": "cp10",
+                    "title": "Hollander Coffee Powder",
+                    "image": "/Assets/Products/coffee-powders/hollander-coffee-powder.jpg",
+                    "price": 21.99,
+                    "description": "Dutch style coffee powder"
+                },
+                {
+                    "id": "cp11",
+                    "title": "Nescafe Coffee Powder",
+                    "image": "/Assets/Products/coffee-powders/nescafe-coffee-powder.jpg",
+                    "price": 16.99,
+                    "description": "Classic instant coffee"
+                },
+                {
+                    "id": "cp12",
+                    "title": "Hill Bros Coffee Powder",
+                    "image": "/Assets/Products/coffee-powders/hill-bros-coffee-powder.jpg",
+                    "price": 18.99,
+                    "description": "Traditional coffee powder"
+                },
+                {
+                    "id": "cp13",
+                    "title": "Rawafed Coffee Powder",
+                    "image": "/Assets/Products/coffee-powders/rawafed-coffee-powder.webp",
+                    "price": 24.99,
+                    "description": "Premium Arabic coffee powder"
+                },
+                {
+                    "id": "cp14",
+                    "title": "Al Khair Coffee Powder",
+                    "image": "/Assets/Products/coffee-powders/al-khair-coffee-powder.jpg",
+                    "price": 19.99,
+                    "description": "Traditional coffee powder"
+                },
+                {
+                    "id": "cp15",
+                    "title": "Nescafe 3 in 1",
+                    "image": "/Assets/Products/coffee-powders/nescafe-3-in-1.jpg",
+                    "price": 15.99,
+                    "description": "Instant coffee with creamer and sugar"
+                },
+                {
+                    "id": "cp16",
+                    "title": "El Timbo Coffee Powder",
+                    "image": "/Assets/Products/coffee-powders/el-timbo-coffee-powder.jpeg",
+                    "price": 22.99,
+                    "description": "Premium coffee powder"
+                },
+                {
+                    "id": "cp17",
+                    "title": "Zuma Hot Chocolate",
+                    "image": "/Assets/Products/coffee-powders/zuma-hot-chocolate.jpg",
+                    "price": 18.99,
+                    "description": "Rich hot chocolate powder"
+                },
+                {
+                    "id": "cp18",
+                    "title": "Jevan Golden Latte",
+                    "image": "/Assets/Products/coffee-powders/jevan-golden-latte.jpeg",
+                    "price": 16.99,
+                    "description": "Golden turmeric latte mix"
+                },
+                {
+                    "id": "cp19",
+                    "title": "Maxwell House Coffee",
+                    "image": "/Assets/Products/coffee-powders/maxwell-house-coffee-powder.webp",
+                    "price": 17.99,
+                    "description": "Classic instant coffee"
+                },
+                {
+                    "id": "cp20",
+                    "title": "Master Food Cocoa Powder",
+                    "image": "/Assets/Products/coffee-powders/master-food-coco-powder.jpg",
+                    "price": 14.99,
+                    "description": "Premium cocoa powder"
+                },
+                {
+                    "id": "cp21",
+                    "title": "FO Coffee Powder",
+                    "image": "/Assets/Products/coffee-powders/fo-cofee-powder.jpg",
+                    "price": 20.99,
+                    "description": "Specialty coffee powder"
+                },
+                {
+                    "id": "cp22",
+                    "title": "Illy Coffee Powder",
+                    "image": "/Assets/Products/coffee-powders/illy-coffee-pwder.jpg",
+                    "price": 25.99,
+                    "description": "Premium Italian coffee powder"
+                }
+            ]
+        },
+        {
+            "id": 9,
+            "category": "sauce",
+            "items": [
+                {
+                    "id": "sa1",
+                    "title": "Hollander Sauce",
+                    "image": "/Assets/Products/sauce/hollander-sauce.jpeg",
+                    "price": 19.99,
+                    "description": "Premium chocolate sauce"
+                },
+                {
+                    "id": "sa2",
+                    "title": "FO Sauce",
+                    "image": "/Assets/Products/sauce/fo-sauce.avif",
+                    "price": 16.99,
+                    "description": "Specialty coffee sauce"
+                },
+                {
+                    "id": "sa3",
+                    "title": "Ovvio Sauce",
+                    "image": "/Assets/Products/sauce/ovvio-sauce.webp",
+                    "price": 18.99,
+                    "description": "Premium coffee sauce"
+                },
+                {
+                    "id": "sa4",
+                    "title": "DaVinci Sauce",
+                    "image": "/Assets/Products/sauce/davinci-sauce.webp",
+                    "price": 17.99,
+                    "description": "Classic coffee sauce"
+                },
+                {
+                    "id": "sa5",
+                    "title": "Toosum Sauce",
+                    "image": "/Assets/Products/sauce/toosum-sauce.jpg",
+                    "price": 15.99,
+                    "description": "Premium coffee sauce"
+                },
+                {
+                    "id": "sa6",
+                    "title": "Jevan White Chocolate",
+                    "image": "/Assets/Products/sauce/jevan-white-chocolate.webp",
+                    "price": 20.99,
+                    "description": "White chocolate sauce"
+                },
+                {
+                    "id": "sa7",
+                    "title": "Il Doge",
+                    "image": "/Assets/Products/sauce/il-doge.jpg",
+                    "price": 22.99,
+                    "description": "Premium coffee sauce"
+                },
+                {
+                    "id": "sa8",
+                    "title": "Tomari White Chocolate",
+                    "image": "/Assets/Products/sauce/tomari-white-chocolate.webp",
+                    "price": 19.99,
+                    "description": "White chocolate sauce"
+                },
+                {
+                    "id": "sa9",
+                    "title": "Zuma Dark Chocolate",
+                    "image": "/Assets/Products/sauce/zuma-dark-choclate.jpg",
+                    "price": 18.99,
+                    "description": "Dark chocolate sauce"
+                },
+                {
+                    "id": "sa10",
+                    "title": "FO Dark Chocolate",
+                    "image": "/Assets/Products/sauce/fo-dark-chocolate.jpg",
+                    "price": 17.99,
+                    "description": "Dark chocolate sauce"
+                },
+                {
+                    "id": "sa11",
+                    "title": "La Sauce de Monin Dark Chocolate",
+                    "image": "/Assets/Products/sauce/la-sauce-de-monin-dark-chocolate.jpg",
+                    "price": 21.99,
+                    "description": "Premium dark chocolate sauce"
+                },
+                {
+                    "id": "sa12",
+                    "title": "Giffard Caramel",
+                    "image": "/Assets/Products/sauce/giffard-caramal.jpeg",
+                    "price": 16.99,
+                    "description": "Caramel sauce"
+                }
+            ]
+        },
+        {
+            "id": 10,
+            "category": "syrups",
+            "items": [
+                {
+                    "id": "sy1",
+                    "title": "1883 Syrups",
+                    "image": "/Assets/Products/syrups/1883-syrups.jpg",
+                    "price": 19.99,
+                    "description": "Premium French coffee syrups"
+                },
+                {
+                    "id": "sy2",
+                    "title": "Just Chill Syrups",
+                    "image": "/Assets/Products/syrups/just-chill-syrups.jpg",
+                    "price": 16.99,
+                    "description": "Refreshing flavored syrups"
+                },
+                {
+                    "id": "sy3",
+                    "title": "Enzo Syrups",
+                    "image": "/Assets/Products/syrups/enzo-syrups.jpg",
+                    "price": 18.99,
+                    "description": "Italian coffee syrups"
+                },
+                {
+                    "id": "sy4",
+                    "title": "Giffard Syrups",
+                    "image": "/Assets/Products/syrups/giffard-syrups.jpg",
+                    "price": 21.99,
+                    "description": "Gourmet flavoring syrups"
+                },
+                {
+                    "id": "sy5",
+                    "title": "Melt Syrups",
+                    "image": "/Assets/Products/syrups/melt-syrups.jpg",
+                    "price": 17.99,
+                    "description": "Specialty coffee syrups"
+                },
+                {
+                    "id": "sy6",
+                    "title": "Aroma Syrups",
+                    "image": "/Assets/Products/syrups/aroma-syrups.jpg",
+                    "price": 15.99,
+                    "description": "Aromatic coffee flavoring"
+                },
+                {
+                    "id": "sy7",
+                    "title": "Il Doge Syrups",
+                    "image": "/Assets/Products/syrups/il-doge-syrups.jpg",
+                    "price": 20.99,
+                    "description": "Italian gourmet syrups"
+                },
+                {
+                    "id": "sy8",
+                    "title": "Jevan Syrups",
+                    "image": "/Assets/Products/syrups/jevan-syrups.jpg",
+                    "price": 16.99,
+                    "description": "Premium coffee syrups"
+                },
+                {
+                    "id": "sy9",
+                    "title": "Sweet Bird Syrups",
+                    "image": "/Assets/Products/syrups/sweet-bird-syrups.jpg",
+                    "price": 18.99,
+                    "description": "Natural flavored syrups"
+                },
+                {
+                    "id": "sy10",
+                    "title": "Torani Syrups",
+                    "image": "/Assets/Products/syrups/torani-syrups.jpg",
+                    "price": 19.99,
+                    "description": "Classic coffee syrups"
+                },
+                {
+                    "id": "sy11",
+                    "title": "FO Syrups",
+                    "image": "/Assets/Products/syrups/fo-syrups.jpg",
+                    "price": 17.99,
+                    "description": "Premium flavoring syrups"
+                },
+                {
+                    "id": "sy12",
+                    "title": "Monin Syrups",
+                    "image": "/Assets/Products/syrups/monin-syrups.jpg",
+                    "price": 22.99,
+                    "description": "Professional grade syrups"
+                }
+            ]
+        },
+        {
+            "id": 11,
+            "category": "coffee",
+            "items": [
+                {
+                    "id": "co1",
+                    "title": "Coffee Chat",
+                    "image": "/Assets/Products/coffee/coffee-chat.jpg",
+                    "price": 18.99,
+                    "description": "Premium coffee blend"
+                },
+                {
+                    "id": "co2",
+                    "title": "Senwan American Coffee",
+                    "image": "/Assets/Products/coffee/senwan-american-coffee.jpg",
+                    "price": 19.99,
+                    "description": "American style coffee blend"
+                },
+                {
+                    "id": "co3",
+                    "title": "C-Roast Coffee",
+                    "image": "/Assets/Products/coffee/c-roast-coffee.jpg",
+                    "price": 21.99,
+                    "description": "Dark roast coffee blend"
+                },
+                {
+                    "id": "co4",
+                    "title": "Essse Coffee",
+                    "image": "/Assets/Products/coffee/essse-coffee.jpg",
+                    "price": 22.99,
+                    "description": "Italian espresso blend"
+                },
+                {
+                    "id": "co5",
+                    "title": "1882 Coffee",
+                    "image": "/Assets/Products/coffee/1882-coffee.jpg",
+                    "price": 24.99,
+                    "description": "Classic coffee blend"
+                },
+                {
+                    "id": "co6",
+                    "title": "Gourmet Coffee",
+                    "image": "/Assets/Products/coffee/gourment-coffee.jpg",
+                    "price": 26.99,
+                    "description": "Premium gourmet coffee"
+                },
+                {
+                    "id": "co7",
+                    "title": "Jevan Coffee",
+                    "image": "/Assets/Products/coffee/jevan-coffee.jpg",
+                    "price": 20.99,
+                    "description": "Specialty coffee blend"
+                },
+                {
+                    "id": "co8",
+                    "title": "Caffe Diemme",
+                    "image": "/Assets/Products/coffee/caffe-diemme-coffee.jpg",
+                    "price": 23.99,
+                    "description": "Italian premium coffee"
+                },
+                {
+                    "id": "co9",
+                    "title": "Illy Intenso",
+                    "image": "/Assets/Products/coffee/illy-intenso-coffee.jpg",
+                    "price": 25.99,
+                    "description": "Intense Italian coffee blend"
+                },
+                {
+                    "id": "co10",
+                    "title": "Lavazza Coffee",
+                    "image": "/Assets/Products/coffee/lavazza-coffee.jpg",
+                    "price": 22.99,
+                    "description": "Classic Italian coffee"
+                },
+                {
+                    "id": "co11",
+                    "title": "Senwan Coffee",
+                    "image": "/Assets/Products/coffee/senwan-coffee.jpg",
+                    "price": 19.99,
+                    "description": "Premium coffee blend"
+                },
+                {
+                    "id": "co12",
+                    "title": "Rilassato Coffee",
+                    "image": "/Assets/Products/coffee/rilassato-coffee.jpg",
+                    "price": 21.99,
+                    "description": "Relaxing coffee blend"
+                },
+                {
+                    "id": "co13",
+                    "title": "Roasting House",
+                    "image": "/Assets/Products/coffee/roasting-house-coffee.jpg",
+                    "price": 23.99,
+                    "description": "Fresh roasted coffee"
+                },
+                {
+                    "id": "co14",
+                    "title": "Swaa Coffee",
+                    "image": "/Assets/Products/coffee/swaa-coffee.jpg",
+                    "price": 18.99,
+                    "description": "African coffee blend"
+                },
+                {
+                    "id": "co15",
+                    "title": "Soil Coffee",
+                    "image": "/Assets/Products/coffee/soil-coffee.jpg",
+                    "price": 20.99,
+                    "description": "Single origin coffee"
+                },
+                {
+                    "id": "co16",
+                    "title": "Kiffa Coffee",
+                    "image": "/Assets/Products/coffee/kiffa-coffee.jpg",
+                    "price": 19.99,
+                    "description": "Ethiopian coffee blend"
+                },
+                {
+                    "id": "co17",
+                    "title": "Black Night Coffee",
+                    "image": "/Assets/Products/coffee/black-night-coffee.jpg",
+                    "price": 21.99,
+                    "description": "Dark roast coffee blend"
+                },
+                {
+                    "id": "co18",
+                    "title": "Molinari Coffee",
+                    "image": "/Assets/Products/coffee/molinari-coffee.jpg",
+                    "price": 24.99,
+                    "description": "Italian premium coffee"
+                },
+                {
+                    "id": "co19",
+                    "title": "Drip On Coffee",
+                    "image": "/Assets/Products/coffee/drip-on-coffee.jpg",
+                    "price": 17.99,
+                    "description": "Pour-over coffee blend"
+                },
+                {
+                    "id": "co20",
+                    "title": "Illy Coffee",
+                    "image": "/Assets/Products/coffee/illy-coffee.jpg",
+                    "price": 25.99,
+                    "description": "Premium Italian coffee"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,145 @@
+{
+  "TopCategory": [
+    {
+      "id": 1,
+      "image": "src/Assets/coffee_powders.jpeg",
+      "item": "Coffee Powders"
+    },
+    {
+      "id": 2,
+      "image": "src/Assets/coffee- Machine.jpeg",
+      "item": "Coffee Machines"
+    },
+    {
+      "id": 3,
+      "image": "src/Assets/syrups.jpeg",
+      "item": "Syrups"
+    }
+  ],
+  "MilkShakes": [
+    {
+      "id": 1,
+      "name": "Mocha Shake",
+      "price": 20.00,
+      "image": "https://images.unsplash.com/photo-1577805947697-89e18249d767?w=500&h=500&fit=crop",
+      "likes": 30
+    },
+    {
+      "id": 2,
+      "name": "Lavender Shake",
+      "price": 20.00,
+      "image": "https://images.unsplash.com/photo-1558234469-50fc184d1cc9?w=500&h=500&fit=crop",
+      "likes": 30
+    },
+    {
+      "id": 3,
+      "name": "Caramel Shake",
+      "price": 20.00,
+      "image": "https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=500&h=500&fit=crop",
+      "likes": 30
+    },
+    {
+      "id": 4,
+      "name": "Vanilla Shake",
+      "price": 20.00,
+      "image": "https://images.unsplash.com/photo-1577805947697-89e18249d767?w=500&h=500&fit=crop",
+      "likes": 30
+    },
+    {
+      "id": 5,
+      "name": "Chocolate Shake",
+      "price": 20.00,
+      "image": "https://images.unsplash.com/photo-1558234469-50fc184d1cc9?w=500&h=500&fit=crop",
+      "likes": 30
+    },
+    {
+      "id": 6,
+      "name": "Vanilla Shake",
+      "price": 20.00,
+      "image": "https://images.unsplash.com/photo-1577805947697-89e18249d767?w=500&h=500&fit=crop",
+      "likes": 30
+    }
+  ],
+  "blogPosts": [
+    {
+      "id": 1,
+      "title": "Coffee Connoisseur",
+      "image": "https://images.unsplash.com/photo-1511920170033-f8396924c348?w=500&h=500&fit=crop",
+      "description": "In their book, A Coffee Enthusiast Delved in The North West of England Into The Humble Coffee And Chef Knows Behind Challenging to me. The Coffeehouse And The Coffeehouse You Are There. Its Did Even Tried to..."
+    },
+    {
+      "id": 2,
+      "title": "Coffee Connoisseur",
+      "image": "https://images.unsplash.com/photo-1511920170033-f8396924c348?w=500&h=500&fit=crop",
+      "description": "In their book, A Coffee Enthusiast Delved in The North West of England Into The Humble Coffee And Chef Knows Behind Challenging to me. The Coffeehouse And The Coffeehouse You Are There. Its Did Even Tried to..."
+    },
+    {
+      "id": 3,
+      "title": "Coffee Connoisseur",
+      "image": "https://images.unsplash.com/photo-1511920170033-f8396924c348?w=500&h=500&fit=crop",
+      "description": "In their book, A Coffee Enthusiast Delved in The North West of England Into The Humble Coffee And Chef Knows Behind Challenging to me. The Coffeehouse And The Coffeehouse You Are There. Its Did Even Tried to..."
+    },
+    {
+      "id": 4,
+      "title": "Coffee Connoisseur",
+      "image": "https://images.unsplash.com/photo-1511920170033-f8396924c348?w=500&h=500&fit=crop",
+      "description": "In their book, A Coffee Enthusiast Delved in The North West of England Into The Humble Coffee And Chef Knows Behind Challenging to me. The Coffeehouse And The Coffeehouse You Are There. Its Did Even Tried to..."
+    },
+    {
+      "id": 5,
+      "title": "Coffee Connoisseur",
+      "image": "https://images.unsplash.com/photo-1511920170033-f8396924c348?w=500&h=500&fit=crop",
+      "description": "In their book, A Coffee Enthusiast Delved in The North West of England Into The Humble Coffee And Chef Knows Behind Challenging to me. The Coffeehouse And The Coffeehouse You Are There. Its Did Even Tried to..."
+    },
+    {
+      "id": 6,
+      "title": "Coffee Connoisseur",
+      "image": "https://images.unsplash.com/photo-1511920170033-f8396924c348?w=500&h=500&fit=crop",
+      "description": "In their book, A Coffee Enthusiast Delved in The North West of England Into The Humble Coffee And Chef Knows Behind Challenging to me. The Coffeehouse And The Coffeehouse You Are There. Its Did Even Tried to..."
+    },
+    {
+      "id": 7,
+      "title": "Coffee Connoisseur",
+      "image": "https://images.unsplash.com/photo-1511920170033-f8396924c348?w=500&h=500&fit=crop",
+      "description": "In their book, A Coffee Enthusiast Delved in The North West of England Into The Humble Coffee And Chef Knows Behind Challenging to me. The Coffeehouse And The Coffeehouse You Are There. Its Did Even Tried to..."
+    }
+  ],
+  "menuItems": [
+    {
+      "id": 1,
+      "title": "Classic Vanilla Shake",
+      "image": "https://images.unsplash.com/photo-1511920170033-f8396924c348?w=500&h=500&fit=crop",
+      "price": 5.99
+    },
+    {
+      "id": 2,
+      "title": "Chocolate Fudge Shake",
+      "image": "https://images.unsplash.com/photo-1511920170033-f8396924c348?w=500&h=500&fit=crop",
+      "price": 5.99
+    },
+    {
+      "id": 3,
+      "title": "Strawberry Bliss Shake",
+      "image": "https://images.unsplash.com/photo-1511920170033-f8396924c348?w=500&h=500&fit=crop",
+      "price": 5.99
+    },
+    {
+      "id": 4,
+      "title": "Caramel Crunch Shake",
+      "image": "https://images.unsplash.com/photo-1511920170033-f8396924c348?w=500&h=500&fit=crop",
+      "price": 5.99
+    },
+    {
+      "id": 5,
+      "title": "Oreo Cookie Shake",
+      "image": "https://images.unsplash.com/photo-1511920170033-f8396924c348?w=500&h=500&fit=crop",
+      "price": 5.99
+    },
+    {
+      "id": 6,
+      "title": "Mango Delight Shake",
+      "image": "https://images.unsplash.com/photo-1511920170033-f8396924c348?w=500&h=500&fit=crop",
+      "price": 5.99
+    }
+  ]
+}

@@ -34,34 +34,34 @@ const SuccessPartners = () => {
     // Import all partner logos with correct paths
     const partnerLogos = {
         // Fixed paths to match actual filenames in src/assets/partners
-        barns: require('../assets/partners/barns.jpg'),
-        delonghi: require('../assets/partners/delonghi.png'),
-        nescafe: require('../assets/partners/nescafe.png'),
-        giffard: require('../assets/partners/liqueurs & sirops giffard .png'), // Note the space before .png
-        torani: require('../assets/partners/torani.png'),
-        kimbo: require('../assets/partners/kimbo.webp'),
-        blackKnight: require('../assets/partners/black-knight.png'),
-        soil: require('../assets/partners/soil.png'),
-        kiffa: require('../assets/partners/kiffa.jpeg'),
-        laCimbali: require('../assets/partners/lacimbali.png'),
-        intenso: require('../assets/partners/intenso-logo1.jpg'),
-        suwaa: require('../assets/partners/suwaa.jpeg'),
-        hercoFoods: require('../assets/partners/herco-foods.webp'),
-        hario: require('../assets/partners/hario.webp'),
-        illy: require('../assets/partners/Illy.png'), // Fixed case sensitivity
-        bigTrain: require('../assets/partners/big-train.png'),
-        ovvio: require('../assets/partners/ovvio.jpeg'),
-        hillsBros: require('../assets/partners/hill-bros.jpeg'),
-        bunn: require('../assets/partners/bunn.png'),
-        caffeDiemme: require('../assets/partners/coffe-diemme.png'), // Fixed typo
-        nutella: require('../assets/partners/nutella.png'),
-        daVinci: require('../assets/partners/DaVinci-Banner.png'), // Fixed case sensitivity
-        twinings: require('../assets/partners/twinings-of-london.png'),
-        lavazza: require('../assets/partners/lavazza.png'),
-        molinari: require('../assets/partners/caffe-molinari.webp'),
-        monin: require('../assets/partners/monin.png'),
-        aiello: require('../assets/partners/aiello.png'),
-        mocafe: require('../assets/partners/mocafe_Logo.jpg') // Fixed case sensitivity and underscore
+        barns: require('../Assets/partners/barns.jpg'),
+        delonghi: require('../Assets/partners/delonghi.png'),
+        nescafe: require('../Assets/partners/nescafe.png'),
+        giffard: require('../Assets/partners/liqueurs & sirops giffard .png'),
+        torani: require('../Assets/partners/torani.png'),
+        kimbo: require('../Assets/partners/kimbo.webp'),
+        blackKnight: require('../Assets/partners/black-knight.png'),
+        soil: require('../Assets/partners/soil.png'),
+        kiffa: require('../Assets/partners/kiffa.jpeg'),
+        laCimbali: require('../Assets/partners/lacimbali.png'),
+        intenso: require('../Assets/partners/intenso-logo1.jpg'),
+        suwaa: require('../Assets/partners/suwaa.jpeg'),
+        hercoFoods: require('../Assets/partners/herco-foods.webp'),
+        hario: require('../Assets/partners/hario.webp'),
+        illy: require('../Assets/partners/Illy.png'),
+        bigTrain: require('../Assets/partners/big-train.png'),
+        ovvio: require('../Assets/partners/ovvio.jpeg'),
+        hillsBros: require('../Assets/partners/hill-bros.jpeg'),
+        bunn: require('../Assets/partners/bunn.png'),
+        caffeDiemme: require('../Assets/partners/coffe-diemme.png'),
+        nutella: require('../Assets/partners/nutella.png'),
+        daVinci: require('../Assets/partners/DaVinci-Banner.png'),
+        twinings: require('../Assets/partners/twinings-of-london.png'),
+        lavazza: require('../Assets/partners/lavazza.png'),
+        molinari: require('../Assets/partners/caffe-molinari.webp'),
+        monin: require('../Assets/partners/monin.png'),
+        aiello: require('../Assets/partners/aiello.png'),
+        mocafe: require('../Assets/partners/mocafe_Logo.jpg')
     };
 
     const partners = [
