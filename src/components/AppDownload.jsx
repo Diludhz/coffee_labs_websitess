@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaApple, FaGooglePlay, FaMobile } from 'react-icons/fa';
+import { FaApple, FaGooglePlay } from 'react-icons/fa';
 import '../styles/AppDownload.css';
 
 // App screenshot

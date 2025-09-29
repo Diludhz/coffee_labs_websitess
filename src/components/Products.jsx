@@ -6,15 +6,6 @@ import {
   FaSearch, 
   FaTimes, 
   FaShoppingCart,
-  FaStar,
-  FaRegStar,
-  FaHeart,
-  FaRegHeart,
-  FaChevronDown,
-  FaChevronUp,
-  FaCheck,
-  FaMinus,
-  FaPlus,
   FaBox,
   FaSync,
   FaBolt,
@@ -23,14 +14,10 @@ import {
 import { GiCoffeeBeans, GiCoffeePot, GiCoffeeCup } from 'react-icons/gi';
 import { AiOutlineGift } from 'react-icons/ai';
 import { FaMugHot } from 'react-icons/fa';
-import { MdOutlineFilterList } from 'react-icons/md';
-import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
-import { useNavigate } from 'react-router-dom';
 import productsData from '../data/products.json';
 import '../styles/Products.css';
 
 const Products = () => {
-  const navigate = useNavigate();
   const [activeCategory, setActiveCategory] = useState('all');
   
   const [searchQuery, setSearchQuery] = useState('');
