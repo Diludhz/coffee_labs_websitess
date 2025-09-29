@@ -1,22 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { FaApple, FaGooglePlay, FaCheck, FaStar, FaGift, FaMobile } from 'react-icons/fa';
+import React from 'react';
+import { FaApple, FaGooglePlay, FaMobile } from 'react-icons/fa';
 import '../styles/AppDownload.css';
-import screenshot1 from '../Assets/screenshot1.jpg';
-import screenshot2 from '../Assets/screenshot2.jpg';
+
+// App screenshots - replace with your actual screenshots
+const screenshot1 = 'https://via.placeholder.com/300x600/4A6FA5/FFFFFF?text=App+Screen+1';
+const screenshot2 = 'https://via.placeholder.com/300x600/4A6FA5/FFFFFF?text=App+Screen+2';
 
 const AppDownload = () => {
-  const [activeSlide, setActiveSlide] = useState(0);
-  const [isHovering, setIsHovering] = useState(false);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (!isHovering) {
-        setActiveSlide(prev => (prev + 1) % 2);
-      }
-    }, 4000);
-
-    return () => clearInterval(interval);
-  }, [isHovering]);
+  // No need for state since we're showing both phones side by side
 
 
   return (
@@ -87,63 +78,37 @@ const AppDownload = () => {
           </div>
         </div>
 
-        {/* 3D Phone Preview Section */}
-        <div className="app-preview">
-          <div 
-            className="phone-mockup-container"
-            onMouseEnter={() => setIsHovering(true)}
-            onMouseLeave={() => setIsHovering(false)}
-          >
-            {/* Main Phone */}
-            <div className={`phone-mockup main-phone ${activeSlide === 0 ? 'slide-1' : 'slide-2'}`}>
-              <div className="phone-frame">
-                <div className="phone-notch"></div>
-                <div className="phone-screen">
-                  <img 
-                    src={activeSlide === 0 ? screenshot1 : screenshot2} 
-                    alt={`App screen ${activeSlide + 1}`} 
-                    className="app-screenshot" 
-                  />
-                  <div className="screen-overlay"></div>
-                </div>
-                <div className="phone-home"></div>
-              </div>
-              <div className="phone-reflect"></div>
-            </div>
-
-            {/* Floating Elements */}
-            <div className="floating-element element-1">
-              <FaCheck className="floating-icon" />
-            </div>
-            <div className="floating-element element-2">
-              <FaStar className="floating-icon" />
-            </div>
-            <div className="floating-element element-3">
-              <FaGift className="floating-icon" />
-            </div>
-
-            {/* Background Effects */}
-            <div className="bg-blur-1"></div>
-            <div className="bg-blur-2"></div>
-          </div>
-
-
-          {/* Screenshot Indicator */}
-          <div className="screenshot-indicator">
-            {[0, 1].map((index) => (
-              <button
-                key={index}
-                className={`indicator-dot ${activeSlide === index ? 'active' : ''}`}
-                onClick={() => setActiveSlide(index)}
-                aria-label={`Show screen ${index + 1}`}
+        {/* iPhone Frames Section */}
+        <div className="phone-showcase">
+          {/* First iPhone Frame */}
+          <div className="iphone-frame">
+            <div className="phone-notch"></div>
+            <div className="phone-screen">
+              <img 
+                src={screenshot1} 
+                alt="App screenshot 1" 
+                className="app-screenshot"
               />
-            ))}
+            </div>
+            <div className="phone-home-indicator"></div>
+          </div>
+          
+          {/* Second iPhone Frame */}
+          <div className="iphone-frame second-phone">
+            <div className="phone-notch"></div>
+            <div className="phone-screen">
+              <img 
+                src={screenshot2} 
+                alt="App screenshot 2"
+                className="app-screenshot"
+              />
+            </div>
+            <div className="phone-home-indicator"></div>
           </div>
         </div>
       </div>
 
       {/* Background Elements */}
-      <div className="bg-orb orb-1"></div>
       <div className="bg-orb orb-2"></div>
       <div className="bg-orb orb-3"></div>
     </section>

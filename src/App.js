@@ -6,9 +6,8 @@ import Hero from './components/Hero';
 import About from './components/About';
 import TopCategories from './components/TopCategories';
 import EquipmentSection from './components/EquipmentSection';
-import ProductsManagement from './components/ProductsManagement';
+import Products from './components/Products';
 import SuccessPartners from './components/SuccessPartners';
-import BookingSlot from './components/BookingSlot';
 import AppDownload from './components/AppDownload';
 import Footer from './components/Footer';
 
@@ -52,9 +51,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<MainContent />} />
-        <Route path="/products" element={<ProductsManagement />} />
-        <Route path="/category/:categoryId" element={<ProductsManagement />} />
-        <Route path="/book" element={<BookingSlot />} />
+        <Route path="/products" element={<Products />} />
       </Routes>
     </div>
   );

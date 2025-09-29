@@ -31,37 +31,37 @@ const SuccessPartners = () => {
         return () => observer.disconnect();
     }, []);
 
-    // Import all partner logos with correct paths
+    // Using placeholder images for partner logos
     const partnerLogos = {
-        // Fixed paths to match actual filenames in src/assets/partners
-        barns: require('../Assets/partners/barns.jpg'),
-        delonghi: require('../Assets/partners/delonghi.png'),
-        nescafe: require('../Assets/partners/nescafe.png'),
-        giffard: require('../Assets/partners/liqueurs & sirops giffard .png'),
-        torani: require('../Assets/partners/torani.png'),
-        kimbo: require('../Assets/partners/kimbo.webp'),
-        blackKnight: require('../Assets/partners/black-knight.png'),
-        soil: require('../Assets/partners/soil.png'),
-        kiffa: require('../Assets/partners/kiffa.jpeg'),
-        laCimbali: require('../Assets/partners/lacimbali.png'),
-        intenso: require('../Assets/partners/intenso-logo1.jpg'),
-        suwaa: require('../Assets/partners/suwaa.jpeg'),
-        hercoFoods: require('../Assets/partners/herco-foods.webp'),
-        hario: require('../Assets/partners/hario.webp'),
-        illy: require('../Assets/partners/Illy.png'),
-        bigTrain: require('../Assets/partners/big-train.png'),
-        ovvio: require('../Assets/partners/ovvio.jpeg'),
-        hillsBros: require('../Assets/partners/hill-bros.jpeg'),
-        bunn: require('../Assets/partners/bunn.png'),
-        caffeDiemme: require('../Assets/partners/coffe-diemme.png'),
-        nutella: require('../Assets/partners/nutella.png'),
-        daVinci: require('../Assets/partners/DaVinci-Banner.png'),
-        twinings: require('../Assets/partners/twinings-of-london.png'),
-        lavazza: require('../Assets/partners/lavazza.png'),
-        molinari: require('../Assets/partners/caffe-molinari.webp'),
-        monin: require('../Assets/partners/monin.png'),
-        aiello: require('../Assets/partners/aiello.png'),
-        mocafe: require('../Assets/partners/mocafe_Logo.jpg')
+        barns: '/assets/partners/barns.jpg',
+        delonghi: '/assets/partners/delonghi.png',
+        nescafe: '/assets/partners/nescafe.png',
+        giffard: '/assets/partners/liqueurs & sirops giffard .png',
+        torani: '/assets/partners/torani.png',
+        kimbo: '/assets/partners/kimbo.webp',
+        blackKnight: '/assets/partners/black-knight.png',
+        soil: '/assets/partners/soil.png',
+        kiffa: '/assets/partners/kiffa.jpeg',
+        laCimbali: '/assets/partners/lacimbali.png',
+        intenso: '/assets/partners/intenso-logo1.jpg',
+        suwaa: '/assets/partners/suwaa.jpeg',
+        hercoFoods: '/assets/partners/herco-foods.webp',
+        hario: '/assets/partners/hario.webp',
+        illy: '/assets/partners/Illy.png',
+        bigTrain: '/assets/partners/big-train.png',
+        ovvio: '/assets/partners/ovvio.jpeg',
+        hillsBros: '/assets/partners/hill-bros.jpeg',
+        bunn: '/assets/partners/bunn.png',
+        caffeDiemme: '/assets/partners/coffe-diemme.png',
+        nutella: '/assets/partners/nutella.png',
+        daVinci: '/assets/partners/DaVinci-Banner.png',
+        twinings: '/assets/partners/twinings-of-london.png',
+        lavazza: '/assets/partners/lavazza.png',
+        molinari: '/assets/partners/caffe-molinari.webp',
+        monin: '/assets/partners/monin.png',
+        aiello: '/assets/partners/aiello.png',
+        mocafe: '/assets/partners/mocafe_Logo.jpg'
+    
     };
 
     const partners = [
@@ -91,7 +91,8 @@ const SuccessPartners = () => {
         { id: 25, name: 'Molinari', logoKey: 'molinari' },
         { id: 26, name: 'Monin', logoKey: 'monin' },
         { id: 27, name: 'Aiello', logoKey: 'aiello' },
-        { id: 28, name: 'Mocafe', logoKey: 'mocafe' }
+        { id: 28, name: 'Mocafe', logoKey: 'mocafe' },
+        { id: 29, name: 'Bunn', logoKey: 'bunn' }
     ];
     return (
         <section className="partners-section" ref={sectionRef}>
@@ -116,7 +117,7 @@ const SuccessPartners = () => {
                                     console.error(`Failed to load image for: ${partner.name}`);
                                     e.target.onerror = null;
                                     // Fallback to a placeholder image in the public directory if the main image fails to load
-                                    e.target.src = '/Assets/placeholder-logo.png';
+                                    e.target.src = 'https://via.placeholder.com/150x100?text=Logo+Not+Found';
                                 }}
                             />
                         </div>

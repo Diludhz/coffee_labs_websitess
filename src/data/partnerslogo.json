@@ -1,0 +1,149 @@
+{
+    "partners": [
+      {
+        "id": 1,
+        "name": "Barns Coffee",
+        "logo": "/assets/partners/barns.jpg"
+      },
+      {
+        "id": 2,
+        "name": "De'Longhi",
+        "logo": "/assets/partners/delonghi.png"
+      },
+      {
+        "id": 3,
+        "name": "Nescafé",
+        "logo": "/assets/partners/nescafe.png"
+      },
+      {
+        "id": 4,
+        "name": "Giffard",
+        "logo": "/assets/partners/liqueurs-sirops-giffard.png"
+      },
+      {
+        "id": 5,
+        "name": "Torani",
+        "logo": "/assets/partners/torani.png"
+      },
+      {
+        "id": 6,
+        "name": "Kimbo",
+        "logo": "/assets/partners/kimbo.webp"
+      },
+      {
+        "id": 7,
+        "name": "Black Knight",
+        "logo": "/assets/partners/black-knight.png"
+      },
+      {
+        "id": 8,
+        "name": "Soil Coffee",
+        "logo": "/assets/partners/soil.png"
+      },
+      {
+        "id": 9,
+        "name": "Kiffa Coffee",
+        "logo": "/assets/partners/kiffa.jpeg"
+      },
+      {
+        "id": 10,
+        "name": "La Cimbali",
+        "logo": "/assets/partners/lacimbali.png"
+      },
+      {
+        "id": 11,
+        "name": "Intenso",
+        "logo": "/assets/partners/intenso-logo1.jpg"
+      },
+      {
+        "id": 12,
+        "name": "Suwaa Coffee",
+        "logo": "/assets/partners/suwaa.jpeg"
+      },
+      {
+        "id": 13,
+        "name": "Herco Foods",
+        "logo": "/assets/partners/herco-foods.webp"
+      },
+      {
+        "id": 14,
+        "name": "Hario",
+        "logo": "/assets/partners/hario.webp"
+      },
+      {
+        "id": 15,
+        "name": "Illy",
+        "logo": "/assets/partners/illy.png"
+      },
+      {
+        "id": 16,
+        "name": "Big Train",
+        "logo": "/assets/partners/big-train.png"
+      },
+      {
+        "id": 17,
+        "name": "Ovvio",
+        "logo": "/assets/partners/ovvio.jpeg"
+      },
+      {
+        "id": 18,
+        "name": "Hills Bros",
+        "logo": "/assets/partners/hill-bros.jpeg"
+      },
+      {
+        "id": 19,
+        "name": "Bunn",
+        "logo": "/assets/partners/bunn.png"
+      },
+      {
+        "id": 20,
+        "name": "Caffè Diemme",
+        "logo": "/assets/partners/coffe-diemme.png"
+      },
+      {
+        "id": 21,
+        "name": "Nutella",
+        "logo": "/assets/partners/nutella.png"
+      },
+      {
+        "id": 22,
+        "name": "Da Vinci",
+        "logo": "/assets/partners/DaVinci-Banner.png"
+      },
+      {
+        "id": 23,
+        "name": "Twinings",
+        "logo": "/assets/partners/twinings-of-london.png"
+      },
+      {
+        "id": 24,
+        "name": "Lavazza",
+        "logo": "/assets/partners/lavazza.png"
+      },
+      {
+        "id": 25,
+        "name": "Caffè Molinari",
+        "logo": "/assets/partners/caffe-molinari.webp"
+      },
+      {
+        "id": 26,
+        "name": "Monin",
+        "logo": "/assets/partners/monin.png"
+      },
+      {
+        "id": 27,
+        "name": "Aiello",
+        "logo": "/assets/partners/aiello.png"
+      },
+      {
+        "id": 28,
+        "name": "Mocafe",
+        "logo": "/assets/partners/mocafe_Logo.jpg"
+      },
+      {
+        "id": 29,
+        "name": "Cafetto",
+        "logo": "/assets/partners/cafetto.jpg"
+      }
+    ]
+  }

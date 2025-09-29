@@ -148,6 +148,8 @@ body {
   display: inline-block;
   box-shadow: 0 2px 8px rgba(239, 131, 84, 0.2);
   text-transform: none;
+  cursor: pointer;
+  line-height: 1.5;
   letter-spacing: normal;
 }
 

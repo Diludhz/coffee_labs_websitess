@@ -52,11 +52,7 @@ const EquipmentSection = () => {
           ))}
         </div>
         
-        <div className="cta-section">
-          <h3>Need help choosing the right equipment?</h3>
-          <p>Our experts will help you select the perfect setup for your business needs.</p>
-          <a href="#contact" className="btn primary">Contact Our Specialists</a>
-        </div>
+       
       </div>
     </section>
   );

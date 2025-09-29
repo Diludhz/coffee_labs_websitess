@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import '../styles/Header.css';
-import logoImage from '../Assets/logo.png'; 
+
+// Using local logo from public folder
+const logoImage = '/assets/logo.png';
+const fallbackLogo = '/assets/logo.png';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,18 +36,24 @@ const Header = () => {
   // Handle smooth scrolling for hash links
   const scrollToSection = (sectionId) => {
     if (location.pathname !== '/') {
-      navigate('/');
+      navigate(`/#${sectionId}`);
       // Wait for the home page to load before scrolling
       setTimeout(() => {
         const element = document.getElementById(sectionId);
         if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
+          window.scrollTo({
+            top: element.offsetTop - 100, // Adjust offset as needed
+            behavior: 'smooth'
+          });
         }
       }, 100);
     } else {
       const element = document.getElementById(sectionId);
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+        window.scrollTo({
+          top: element.offsetTop - 100, // Adjust offset as needed
+          behavior: 'smooth'
+        });
       }
     }
     setIsOpen(false);
@@ -113,6 +122,7 @@ const Header = () => {
               alt="Coffee Labs" 
               className="logo-image"
               onError={(e) => {
+                e.target.src = fallbackLogo;
                 // Fallback if image fails to load
                 e.target.style.display = 'none';
                 e.target.nextSibling.style.display = 'block';
@@ -166,14 +176,13 @@ const Header = () => {
           </button>
           
           <div className="book-table-container">
-            <Link 
-              to="/book"
+            <button 
               className="book-table-btn"
-              onClick={() => handleNavClick('book')}
+              onClick={() => alert('Booking functionality coming soon!')}
               aria-label="Booking Slot"
             >
               Booking Slot
-            </Link>
+            </button>
           </div>
         </div>
 

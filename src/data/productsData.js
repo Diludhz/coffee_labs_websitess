@@ -8,7 +8,7 @@ const productsData = {
         {
           "id": "tm1",
           "title": "Pristine Whip Topping",
-          "image": "/Assets/Products/tea-milk/pristine-whip-topping.webp",
+          "image": "/Assets/pristine-whip-topping.webp",
           "price": 12.99,
           "stock": true,
           "rating": 4.5,
@@ -18,7 +18,7 @@ const productsData = {
         {
           "id": "tm2",
           "title": "Nadec Milk",
-          "image": "/Assets/Products/tea-milk/nadec-milk.jpg",
+          "image": "/Assets/nadec-milk.jpg",
           "price": 8.99,
           "stock": true,
           "rating": 4.2,
@@ -35,7 +35,7 @@ const productsData = {
         {
           "id": "sp1",
           "title": "Herco Hazelnut Paste",
-          "image": "/Assets/Products/spreads/herco-hazalnuts-paste-.jpeg",
+          "image": "/Assets/herco-hazalnuts-paste.jpeg",
           "price": 14.99,
           "stock": true,
           "rating": 4.7,
