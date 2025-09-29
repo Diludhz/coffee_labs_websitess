@@ -997,22 +997,18 @@ body {
   padding: var(--space-md) 0 0;
   display: flex;
   flex-direction: column;
+  gap: 0.5rem;
+  flex-direction: column;
   border-top: 1px solid var(--border-light);
   margin-top: var(--space-md);
   width: 100%;
   gap: 8px; /* Space between price and button */
 }
 
-.product-price {
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  font-family: 'Inter', sans-serif;
-  white-space: nowrap;
-  text-align: left;
-  width: 100%;
-  display: block;
-  margin-bottom: 4px;
+.price-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
 }
 
 .currency {

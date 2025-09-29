@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { 
   FaSearch, 
   FaFilter, 
-  FaShoppingCart,
   FaArrowRight, 
   FaArrowLeft,
   FaTimes,
@@ -124,23 +123,23 @@ const Products = () => {
     setShowFilters(!showFilters);
   };
 
-  // Handle price range change
-  const handlePriceChange = (e, index) => {
-    const value = Math.min(Math.max(parseInt(e.target.value || 0), 0), 1000);
-    const newPriceRange = [...priceRange];
+  // Price range change handler (commented out as it's not currently used)
+  // const handlePriceChange = (e, index) => {
+  //   const value = Math.min(Math.max(parseInt(e.target.value || 0), 0), 1000);
+  //   const newPriceRange = [...priceRange];
     
-    if (index === 0) {
-      // Min thumb was moved
-      if (value >= newPriceRange[1]) return; // Prevent min from exceeding max
-      newPriceRange[0] = value;
-    } else {
-      // Max thumb was moved
-      if (value <= newPriceRange[0]) return; // Prevent max from going below min
-      newPriceRange[1] = value;
-    }
+  //   if (index === 0) {
+  //     // Min thumb was moved
+  //     if (value >= newPriceRange[1]) return; // Prevent min from exceeding max
+  //     newPriceRange[0] = value;
+  //   } else {
+  //     // Max thumb was moved
+  //     if (value <= newPriceRange[0]) return; // Prevent max from going below min
+  //     newPriceRange[1] = value;
+  //   }
     
-    setPriceRange(newPriceRange);
-  };
+  //   setPriceRange(newPriceRange);
+  // };
 
   // Add to cart function
   const addToCart = (product, e) => {
@@ -388,6 +387,7 @@ const Products = () => {
             {!isLoading && currentProducts.length > 0 ? (
               <div className="products-grid">
                 {currentProducts.map((product) => {
+                  // Calculate final price with discount if applicable
                   const finalPrice = product.discount ? 
                     product.price * (1 - product.discount / 100) : product.price;
 
@@ -423,9 +423,25 @@ const Products = () => {
                         
                         {/* Price and Add to Cart Section */}
                         <div className="product-footer">
-                          <span className="product-price">
-                            {product.price.toFixed(2)} <span className="currency">SAR</span>
-                          </span>
+                          <div className="price-container">
+                            {product.discount ? (
+                              <>
+                                <span className="original-price">
+                                  {product.price.toFixed(2)} SAR
+                                </span>
+                                <span className="final-price">
+                                  {finalPrice.toFixed(2)} SAR
+                                </span>
+                                <span className="discount-badge">
+                                  {product.discount}% OFF
+                                </span>
+                              </>
+                            ) : (
+                              <span className="final-price">
+                                {finalPrice.toFixed(2)} SAR
+                              </span>
+                            )}
+                          </div>
                           <button 
                             className={`add-to-cart-btn ${!product.inStock ? 'out-of-stock' : ''}`}
                             onClick={(e) => product.inStock && addToCart(product, e)}

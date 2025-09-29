@@ -2,9 +2,8 @@ import React from 'react';
 import { FaApple, FaGooglePlay, FaMobile } from 'react-icons/fa';
 import '../styles/AppDownload.css';
 
-// App screenshots - replace with your actual screenshots
-const screenshot1 = 'https://via.placeholder.com/300x600/4A6FA5/FFFFFF?text=App+Screen+1';
-const screenshot2 = 'https://via.placeholder.com/300x600/4A6FA5/FFFFFF?text=App+Screen+2';
+// App screenshot
+const appScreenshot = '/assets/appdownloard-.png';
 
 const AppDownload = () => {
   // No need for state since we're showing both phones side by side
@@ -72,39 +71,18 @@ const AppDownload = () => {
                     <span className="store-name">Google Play</span>
                   </div>
                 </div>
-                <div className="btn-glow"></div>
               </a>
             </div>
           </div>
         </div>
 
-        {/* iPhone Frames Section */}
-        <div className="phone-showcase">
-          {/* First iPhone Frame */}
-          <div className="iphone-frame">
-            <div className="phone-notch"></div>
-            <div className="phone-screen">
-              <img 
-                src={screenshot1} 
-                alt="App screenshot 1" 
-                className="app-screenshot"
-              />
-            </div>
-            <div className="phone-home-indicator"></div>
-          </div>
-          
-          {/* Second iPhone Frame */}
-          <div className="iphone-frame second-phone">
-            <div className="phone-notch"></div>
-            <div className="phone-screen">
-              <img 
-                src={screenshot2} 
-                alt="App screenshot 2"
-                className="app-screenshot"
-              />
-            </div>
-            <div className="phone-home-indicator"></div>
-          </div>
+        {/* App Screenshot */}
+        <div className="screenshots-container">
+          <img 
+            src={appScreenshot} 
+            alt="Coffee Labs App" 
+            className="app-screenshot"
+          />
         </div>
       </div>
 
