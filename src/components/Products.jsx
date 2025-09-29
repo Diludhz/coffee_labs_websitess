@@ -238,9 +238,9 @@ const Products = () => {
       {/* Enhanced Hero Section */}
       <section className="products-hero">
         <div className="hero-content">
-          <h1 className="hero-title">Discover Premium Coffee Essentials</h1>
+          <h1 className="hero-title">Premium Coffee Essentials</h1>
           <p className="hero-subtitle">
-            Curated selection of specialty beans, brewing equipment, and accessories for the perfect brew
+            Specialty beans, brewing gear & accessories for the perfect cup
           </p>
           
           {/* Enhanced Search System */}
