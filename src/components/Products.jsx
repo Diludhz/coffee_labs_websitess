@@ -1,13 +1,25 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { 
-  FaSearch, 
   FaFilter, 
   FaArrowRight, 
   FaArrowLeft,
   FaTimes,
   FaFire,
+  FaShoppingCart,
+  FaMugHot,
+  FaSync,
+  FaBox,
+  FaSearch,
   FaBolt
 } from 'react-icons/fa';
+import { 
+  GiCoffeePot, 
+  GiCoffeeCup, 
+  GiCoffeeBeans 
+} from 'react-icons/gi';
+import { 
+  AiOutlineGift 
+} from 'react-icons/ai';
 import productsData from '../data/products.json';
 import '../styles/Products.css';
 
@@ -39,17 +51,20 @@ const Products = () => {
     }))
   ];
 
+
+
   // Helper function for category icons
   function getCategoryIcon(category) {
     const icons = {
-      'coffee-beans': '☕',
-      'brewing-equipment': '⚗️',
-      'grinders': '⚙️',
-      'accessories': '🎯',
-      'gift-sets': '🎁',
-      'subscriptions': '🔄'
+      'all': <FaBox className="category-icon" />,
+      'coffee-beans': <GiCoffeeBeans className="category-icon" />,
+      'brewing-equipment': <GiCoffeePot className="category-icon" />,
+      'grinders': <GiCoffeeCup className="category-icon" />,
+      'accessories': <FaMugHot className="category-icon" />,
+      'gift-sets': <AiOutlineGift className="category-icon" />,
+      'subscriptions': <FaSync className="category-icon" />
     };
-    return icons[category] || '📦';
+    return icons[category] || <FaBox className="category-icon" />;
   }
 
   // Enhanced product filtering with loading state
@@ -412,12 +427,6 @@ const Products = () => {
                       <div className="product-details">
                         <div className="product-header">
                           <h3 className="product-title">{product.title}</h3>
-                          <div className={`stock-status ${product.inStock ? 'in-stock' : 'out-of-stock'}`}>
-                            <span className="status-dot"></span>
-                            <span className="status-text">
-                              {product.inStock ? 'In Stock' : 'Out of Stock'}
-                            </span>
-                          </div>
                         </div>
                         <p className="product-description">{product.description}</p>
                         
@@ -443,12 +452,12 @@ const Products = () => {
                             )}
                           </div>
                           <button 
-                            className={`add-to-cart-btn ${!product.inStock ? 'out-of-stock' : ''}`}
-                            onClick={(e) => product.inStock && addToCart(product, e)}
-                            disabled={!product.inStock}
+                            className="add-to-cart-btn"
+                            onClick={(e) => addToCart(product, e)}
                           >
                             <span className="button-text">
-                              {product.inStock ? 'Add To Cart' : 'Out Of Stock'}
+                              <FaShoppingCart className="cart-icon" />
+                              <span>Add To Cart</span>
                             </span>
                           </button>
                         </div>

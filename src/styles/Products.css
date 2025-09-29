@@ -201,21 +201,23 @@ body {
   display: flex;
   align-items: center;
   gap: var(--space-sm);
-  background: var(--primary);
-  color: white;
-  border: none;
+  background: var(--button-bg);
+  color: var(--button-text);
+  border: 1px solid var(--button-bg);
   padding: var(--space-md) var(--space-lg);
   border-radius: var(--radius-full);
   font-weight: 600;
   cursor: pointer;
-  transition: var(--transition-base);
+  transition: all 0.2s ease;
   flex-shrink: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 .filter-toggle:hover {
-  background: var(--primary-dark);
+  background: var(--button-hover);
+  border-color: var(--button-hover);
   transform: translateY(-1px);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* ===== Advanced Filter Grid ===== */
@@ -318,9 +320,14 @@ body {
 }
 
 .category-icon {
-  font-size: 1.25rem;
+  font-size: 1.4rem;
   width: 24px;
-  text-align: center;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-color);
+  transition: all 0.2s ease;
 }
 
 .category-info {
@@ -547,25 +554,29 @@ body {
 
 .sort-option {
   padding: var(--space-md) var(--space-lg);
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-light);
+  background: var(--button-bg);
+  border: 1px solid var(--button-bg);
   border-radius: var(--radius-lg);
   cursor: pointer;
-  transition: var(--transition-base);
+  transition: all 0.2s ease;
   font-weight: 500;
-  color: var(--text-secondary);
+  color: var(--button-text);
   text-align: left;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 .sort-option:hover {
-  border-color: var(--primary);
-  transform: translateX(4px);
+  background: var(--button-hover);
+  border-color: var(--button-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .sort-option.active {
-  background: var(--primary);
-  color: white;
-  border-color: var(--primary);
+  background: var(--button-hover);
+  color: var(--button-text);
+  border-color: var(--button-hover);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Filter Actions */
@@ -580,34 +591,41 @@ body {
 .apply-filters, .reset-filters {
   flex: 1;
   padding: var(--space-md) var(--space-lg);
-  border: none;
+  border: 1px solid var(--button-bg);
   border-radius: var(--radius-lg);
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
-  transition: var(--transition-base);
+  transition: all 0.2s ease;
   font-size: var(--text-sm);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  text-transform: none;
+  letter-spacing: 0.01em;
 }
 
 .apply-filters {
-  background: var(--primary);
-  color: white;
+  background: var(--button-bg);
+  color: var(--button-text);
 }
 
 .apply-filters:hover {
-  background: var(--primary-dark);
+  background: var(--button-hover);
+  border-color: var(--button-hover);
   transform: translateY(-1px);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .reset-filters {
-  background: transparent;
-  color: var(--text-secondary);
-  border: 1px solid var(--border-light);
+  background: var(--button-bg);
+  color: var(--button-text);
+  opacity: 0.8;
 }
 
 .reset-filters:hover {
-  background: var(--bg-secondary);
-  border-color: var(--border-medium);
+  background: var(--button-hover);
+  border-color: var(--button-hover);
+  opacity: 1;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* ===== Results & Products Grid ===== */
@@ -836,12 +854,60 @@ body {
   overflow: hidden;
 }
 
+/* Base button styles */
+button, .btn {
+  background-color: #000000;
+  color: #ffffff;
+  border: 1px solid #000000;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0.01em;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+/* Add to cart button specific styles */
+.add-to-cart-btn {
+  background-color: #000000;
+  color: #ffffff;
+  border: 1px solid #000000;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0.01em;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #333333;
+  border-color: #333333;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.add-to-cart-btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
 .add-to-cart-btn .button-text {
   position: relative;
   z-index: 2;
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   transition: transform 0.2s ease;
   font-feature-settings: 'tnum' on, 'lnum' on;
+  width: 100%;
 }
 
 .add-to-cart-btn:hover:not(:disabled) {
@@ -854,23 +920,19 @@ body {
   transform: translateY(0);
 }
 
-.add-to-cart-btn.out-of-stock {
-  background: var(--text-tertiary);
-  cursor: not-allowed;
-  opacity: 0.7;
-}
+/* Out of stock styling removed */
 
 .action-btn {
   width: 36px;
   height: 36px;
-  background: white;
-  border: 1px solid var(--border-light);
+  background: #000000;
+  border: 1px solid #000000;
   border-radius: var(--radius-full);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: var(--text-primary);
+  color: #ffffff;
   transition: var(--transition-base);
   box-shadow: var(--shadow-sm);
 }
@@ -893,19 +955,26 @@ body {
   bottom: var(--space-lg);
   left: 50%;
   transform: translateX(-50%) translateY(20px);
-  background: var(--primary);
-  color: white;
-  border: none;
-  padding: var(--space-md) var(--space-lg);
+  background: var(--button-bg);
+  color: var(--button-text);
+  border: 1px solid var(--button-bg);
   border-radius: var(--radius-full);
-  font-weight: 600;
+  padding: var(--space-sm) var(--space-lg);
+  font-weight: 500;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  text-transform: none;
+  letter-spacing: 0.01em;
+  transition: all 0.2s ease;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
-  transition: var(--transition-base);
   opacity: 0;
-  box-shadow: var(--shadow-lg);
+  visibility: hidden;
+}
+
+.quick-add-btn:hover {
+  background: var(--button-hover);
+  border-color: var(--button-hover);
+  transform: translateX(-50%) translateY(18px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .product-card:hover .quick-add-btn {
@@ -1365,6 +1434,41 @@ body {
     padding: 0 var(--space-sm); /* Add horizontal padding */
   }
   
+  /* Hide stock status on mobile */
+  .in-stock-status {
+    display: none;
+  }
+  
+  /* Adjust product card layout for mobile */
+  .product-card {
+    height: auto;
+    min-height: 300px;
+  }
+  
+  /* Make sure add to cart button is full width on mobile */
+  .add-to-cart-btn {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 0.85rem;
+  }
+  
+  /* Adjust product image container */
+  .product-image {
+    padding-top: 100%; /* Make it square */
+  }
+  
+  /* Adjust product info padding */
+  .product-info {
+    padding: var(--space-sm);
+  }
+  
+  /* Make sure price and button are properly aligned */
+  .product-footer {
+    flex-direction: column;
+    gap: var(--space-sm);
+    padding: 0 var(--space-sm) var(--space-sm);
+  }
+  
   .filter-actions {
     flex-direction: column;
     gap: var(--space-md);
@@ -1402,7 +1506,7 @@ body {
 
 @media (max-width: 480px) {
   .container {
-    padding: 0 var(--space-md);
+    padding: 0 var(--space-sm);
   }
   
   .products-hero {
