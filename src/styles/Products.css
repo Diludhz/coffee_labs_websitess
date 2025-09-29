@@ -1362,59 +1362,88 @@ button, .btn {
 
 @media (max-width: 768px) {
   .products-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 items on mobile - FIXED */
-    gap: var(--space-sm);
-    padding: 0 var(--space-sm);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+    padding: 0 0.5rem;
+    width: 100%;
   }
   
   .product-card {
     height: auto;
-    min-height: 280px;
+    min-height: auto;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .product-card:active {
+    transform: scale(0.98);
   }
   
   .add-to-cart-btn {
     width: 100%;
     padding: 0.5rem;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
   
   .product-image {
     padding-top: 100%;
+    border-radius: 0.5rem 0.5rem 0 0;
+    margin-bottom: 0.5rem;
   }
   
   .product-details {
-    padding: var(--space-sm);
-  }
-  
-  .product-footer {
-    flex-direction: column;
-    gap: var(--space-sm);
-    padding: 0 var(--space-sm) var(--space-sm);
-  }
-  
-  /* Ensure product cards maintain consistent height in 2-column layout */
-  .product-card {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  }
-  
-  .product-details {
+    padding: 0.5rem;
     flex: 1;
     display: flex;
     flex-direction: column;
   }
   
+  .product-title {
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .product-price {
+    font-size: 1rem;
+    margin: 0.25rem 0;
+  }
+  
   .product-footer {
+    padding: 0.5rem;
     margin-top: auto;
   }
+  
+  /* Remove the extra media query for 480px as we're keeping 2 columns */
 }
 
-@media (max-width: 480px) {
+/* Adjust for very small screens */
+@media (max-width: 360px) {
   .products-grid {
-    grid-template-columns: repeat(2, 1fr); /* Keep 2 items on very small mobile */
-    gap: var(--space-sm);
-    padding: 0 var(--space-xs);
+    padding: 0 0.25rem;
+    gap: 0.25rem;
+  }
+  
+  .product-title {
+    font-size: 0.8rem;
+  }
+  
+  .product-price {
+    font-size: 0.9rem;
+  }
+  
+  .add-to-cart-btn {
+    font-size: 0.75rem;
+    padding: 0.4rem;
   }
   
   .product-card {
