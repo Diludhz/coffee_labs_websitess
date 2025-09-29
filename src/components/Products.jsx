@@ -3,28 +3,36 @@ import {
   FaFilter, 
   FaArrowRight, 
   FaArrowLeft,
-  FaTimes,
-  FaFire,
+  FaSearch, 
+  FaTimes, 
   FaShoppingCart,
-  FaMugHot,
-  FaSync,
+  FaStar,
+  FaRegStar,
+  FaHeart,
+  FaRegHeart,
+  FaChevronDown,
+  FaChevronUp,
+  FaCheck,
+  FaMinus,
+  FaPlus,
   FaBox,
-  FaSearch,
-  FaBolt
+  FaSync,
+  FaBolt,
+  FaFire
 } from 'react-icons/fa';
-import { 
-  GiCoffeePot, 
-  GiCoffeeCup, 
-  GiCoffeeBeans 
-} from 'react-icons/gi';
-import { 
-  AiOutlineGift 
-} from 'react-icons/ai';
+import { GiCoffeeBeans, GiCoffeePot, GiCoffeeCup } from 'react-icons/gi';
+import { AiOutlineGift } from 'react-icons/ai';
+import { FaMugHot } from 'react-icons/fa';
+import { MdOutlineFilterList } from 'react-icons/md';
+import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
+import { useNavigate } from 'react-router-dom';
 import productsData from '../data/products.json';
 import '../styles/Products.css';
 
 const Products = () => {
+  const navigate = useNavigate();
   const [activeCategory, setActiveCategory] = useState('all');
+  
   const [searchQuery, setSearchQuery] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [filteredProducts, setFilteredProducts] = useState([]);
@@ -233,6 +241,7 @@ const Products = () => {
     return category ? category.name : 'All Products';
   };
 
+
   return (
     <div className="products-container">
       {/* Enhanced Hero Section */}
@@ -407,20 +416,20 @@ const Products = () => {
                     product.price * (1 - product.discount / 100) : product.price;
 
                   return (
-                    <article key={product.id} className="product-card">
-                     
-
+                    <div 
+                      key={product.id} 
+                      className={`product-card ${!product.inStock ? 'out-of-stock' : ''}`}
+                    >
                       {/* Product Image with Enhanced Overlay */}
                       <div className="product-image">
                         <img
-                          src={product.image || '/api/placeholder/400/400'}
+                          src={product.image || 'https://via.placeholder.com/400x400.png?text=No+Image'}
                           alt={product.title}
                           onError={(e) => {
-                            e.target.src = '/api/placeholder/400/400';
+                            e.target.src = 'https://via.placeholder.com/400x400.png?text=Image+Not+Available';
                           }}
                           loading="lazy"
                         />
-                        
                       </div>
 
                       {/* Enhanced Product Details */}
@@ -462,7 +471,7 @@ const Products = () => {
                           </button>
                         </div>
                       </div>
-                    </article>
+                    </div>
                   );
                 })}
               </div>

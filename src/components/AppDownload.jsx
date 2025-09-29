@@ -15,10 +15,6 @@ const AppDownload = () => {
         {/* Content Section */}
         <div className="app-download-content">
           <div className="content-wrapper">
-            <div className="badge">
-              <FaMobile className="badge-icon" />
-              <span>New App</span>
-            </div>
             <h2>
               <span className="gradient-text">Download Our</span>
               <span className="highlight-text">Mobile App</span>
