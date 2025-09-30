@@ -49,32 +49,6 @@ body {
   gap: 12px;
 }
 
-.cart-icon-container {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: 1rem;
-  color: #333;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-/* Cart link in navigation */
-.cart-link {
-  display: flex;
-  align-items: center;
-  gap: 8px; /* Add space between icon and text */
-}
-
-.cart-link .cart-icon {
-  margin-right: 4px; /* Additional spacing after icon */
-}
-
-.cart-count {
-  margin-left: 4px; /* Space between text and count */
-}
-
 .logo-text {
   font-family: 'Montserrat', sans-serif;
   font-size: 1.2rem;

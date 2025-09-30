@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { FaShoppingCart } from 'react-icons/fa';
 import '../styles/Header.css';
 
 // Using local logo from public folder
@@ -63,7 +62,7 @@ const Header = ({ cart = [] }) => {
 
   // Update active link based on scroll position
   useEffect(() => {
-    const sections = ['home', 'about', 'products', 'equipment', 'cart'];
+    const sections = ['home', 'about', 'products', 'equipment'];
     
     const handleScroll = () => {
       if (location.pathname !== '/') return;
@@ -180,19 +179,7 @@ const Header = ({ cart = [] }) => {
           >
             Equipment
           </button>
-          <Link 
-            to="/cart" 
-            className={`nav-link ${activeLink === 'cart' ? 'active' : ''} cart-link`}
-            onClick={() => handleNavClick('cart')}
-          >
-            <FaShoppingCart className="cart-icon" />
-            <span>Cart</span>
-            {cart.length > 0 && (
-              <span className="cart-count">{cart.reduce((total, item) => total + (item.quantity || 1), 0)}</span>
-            )}
-          </Link>
-          
-          <div className="book-table-container">
+<div className="book-table-container">
             <button 
               className="book-table-btn"
               onClick={() => alert('Booking functionality coming soon!')}

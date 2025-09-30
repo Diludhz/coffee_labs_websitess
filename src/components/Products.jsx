@@ -15,11 +15,7 @@ import { FaMugHot } from 'react-icons/fa';
 import productsData from '../data/products.json';
 import '../styles/Products.css';
 
-import Snackbar from './Snackbar';
-
 const Products = ({ onAddToCart }) => {
-  const [showSnackbar, setShowSnackbar] = useState(false);
-  const [addedProduct, setAddedProduct] = useState(null);
   const [activeCategory, setActiveCategory] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
@@ -138,14 +134,11 @@ const Products = ({ onAddToCart }) => {
     setShowFilters(!showFilters);
   };
 
-  // Add to cart handler with snackbar notification
+  // Add to cart handler
   const addToCart = (product, e) => {
     e.stopPropagation();
     if (onAddToCart) {
       onAddToCart(product);
-      setAddedProduct(product);
-      setShowSnackbar(true);
-      setTimeout(() => setShowSnackbar(false), 3000);
     }
   };
 
@@ -209,6 +202,7 @@ const Products = ({ onAddToCart }) => {
           {/* Search Section */}
           <section className="search-section">
             <div className="container">
+              <h1 className="products-heading">Our Products</h1>
               <div className="search-container">
                 <div className="search-box">
                   <input
@@ -399,9 +393,9 @@ const Products = ({ onAddToCart }) => {
                                   <button 
                                     className="add-to-cart-button"
                                     onClick={(e) => addToCart(product, e)}
-                                    aria-label="Add to cart"
+                                    aria-label="Order in App"
                                   >
-                                    Add to Cart
+                                    Order in App
                                   </button>
                                 </div>
                               </div>
@@ -469,14 +463,6 @@ const Products = ({ onAddToCart }) => {
         {showFilters && (
           <div className="filter-overlay" onClick={toggleFilters}></div>
         )}
-        
-        {/* Snackbar Notification */}
-        <Snackbar 
-          show={showSnackbar}
-          onClose={() => setShowSnackbar(false)}
-          message="Added to cart:"
-          productName={addedProduct?.title}
-        />
       </div>
 
       {/* Mobile Action Buttons */}
