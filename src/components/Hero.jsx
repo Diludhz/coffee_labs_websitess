@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../styles/Hero.css';
 
 const Hero = () => {
+  const navigate = useNavigate();
   useEffect(() => {
     const header = document.querySelector('.header');
     const handleScroll = () => {
@@ -24,7 +26,7 @@ const Hero = () => {
           <h2>Premium Coffee Equipment & Maintenance</h2>
           <p>Your trusted partner for commercial coffee machines, premium supplies, and expert maintenance services. We help businesses serve the perfect cup, every time.</p>
           <div className="cta-buttons">
-            <a href="#services" className="btn secondary">Explore Now</a>
+            <button onClick={() => navigate('/products')} className="btn secondary">Explore Now</button>
           </div>
         </div>
       </div>
