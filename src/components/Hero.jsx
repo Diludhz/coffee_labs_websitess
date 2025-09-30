@@ -23,7 +23,7 @@ const Hero = () => {
       <div className="hero-container">
         <div className="hero-content">
           <h1 className="gradient-text">Coffee Labs</h1>
-          <h2>Premium Coffee Equipment & Maintenance</h2>
+          <h2>Premium Coffee Supplies & Maintenance</h2>
           <p>Your trusted partner for commercial coffee machines, premium supplies, and expert maintenance services. We help businesses serve the perfect cup, every time.</p>
           <div className="cta-buttons">
             <button onClick={() => navigate('/products')} className="btn secondary">Explore Now</button>
