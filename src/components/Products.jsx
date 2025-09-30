@@ -341,9 +341,9 @@ const Products = ({ onAddToCart }) => {
                     currentProducts.length > 0 ? (
                       <div className="products-grid">
                         {currentProducts.map((product) => {
-                          // Calculate final price with discount if applicable
-                          const finalPrice = product.discount ? 
-                            product.price * (1 - product.discount / 100) : product.price;
+                          // Check if there's a discount (real_price is higher than price)
+                          const hasDiscount = product.real_price > product.price;
+                          const finalPrice = hasDiscount ? product.price : product.real_price || product.price;
 
                           return (
                             <div 
@@ -372,24 +372,24 @@ const Products = ({ onAddToCart }) => {
                                 {/* Price and Add to Cart Section */}
                                 <div className="product-footer">
                                   <div className="price-container">
-                                    {product.discount ? (
-                                      <>
-                                        <span className="original-price">
-                                          {product.price.toFixed(2)} SAR
-                                        </span>
-                                        <span className="final-price">
-                                          {finalPrice.toFixed(2)} SAR
-                                        </span>
-                                        <span className="discount-badge">
-                                          {product.discount}% OFF
-                                        </span>
-                                      </>
-                                    ) : (
-                                      <span className="final-price">
-                                        {finalPrice.toFixed(2)} SAR
+                                  {hasDiscount ? (
+                                    <>
+                                      <span className="original-price">
+                                        <img src="/assets/saudi_riyal.svg" alt="SAR" className="currency-symbol" />
+                                        {product.real_price.toFixed(2)}
                                       </span>
-                                    )}
-                                  </div>
+                                      <span className="final-price">
+                                        <img src="/assets/saudi_riyal.svg" alt="SAR" className="currency-symbol" />
+                                        {finalPrice.toFixed(2)}
+                                      </span>
+                                    </>
+                                  ) : (
+                                    <span className="final-price">
+                                      <img src="/assets/saudi_riyal.svg" alt="SAR" className="currency-symbol" />
+                                      {finalPrice.toFixed(2)}
+                                    </span>
+                                  )}
+                                </div>
                                   <button 
                                     className="add-to-cart-button"
                                     onClick={(e) => addToCart(product, e)}
