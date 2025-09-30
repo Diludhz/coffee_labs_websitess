@@ -42,7 +42,6 @@ window.addEventListener('unhandledrejection', function (event) {
 });
 
 // Add a debounced ResizeObserver to prevent loop issues
-const resizeObserverMap = new WeakMap();
 
 const debounce = (func, wait) => {
   let timeout;
