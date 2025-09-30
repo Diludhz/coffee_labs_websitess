@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { FaShoppingCart } from 'react-icons/fa';
 import '../styles/Header.css';
 
 // Using local logo from public folder
 const logoImage = '/assets/logo.png';
 const fallbackLogo = '/assets/logo.png';
 
-const Header = () => {
+const Header = ({ cart = [] }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeLink, setActiveLink] = useState('home');
   const [scrolled, setScrolled] = useState(false);
@@ -62,7 +63,7 @@ const Header = () => {
 
   // Update active link based on scroll position
   useEffect(() => {
-    const sections = ['home', 'about', 'products', 'equipment'];
+    const sections = ['home', 'about', 'products', 'equipment', 'cart'];
     
     const handleScroll = () => {
       if (location.pathname !== '/') return;
@@ -113,27 +114,30 @@ const Header = () => {
     <header className={`header ${scrolled ? 'scrolled' : ''}`}>
       <div className="header-container">
         <div className="logo">
-          <Link to="/" onClick={() => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            handleNavClick('home');
-          }} className="logo-link">
+          <div className="logo-container">
             <img 
               src={logoImage} 
               alt="Coffee Labs" 
               className="logo-image"
+              onClick={() => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                handleNavClick('home');
+                navigate('/');
+              }}
               onError={(e) => {
                 e.target.src = fallbackLogo;
                 // Fallback if image fails to load
                 e.target.style.display = 'none';
                 e.target.nextSibling.style.display = 'block';
               }}
+              style={{ cursor: 'pointer' }}
             />
             <span className="logo-text">Coffee Labs</span>
             {/* Fallback text if image fails */}
             <span className="logo-fallback">
               Coffee Labs
             </span>
-          </Link>
+          </div>
         </div>
         
         <div className={`nav-links ${isOpen ? 'active' : ''}`}>
@@ -165,6 +169,8 @@ const Header = () => {
             Products
           </Link>
           
+         
+          
           <button 
             className={`nav-link ${activeLink === 'equipment' ? 'active' : ''}`}
             onClick={() => {
@@ -174,6 +180,17 @@ const Header = () => {
           >
             Equipment
           </button>
+          <Link 
+            to="/cart" 
+            className={`nav-link ${activeLink === 'cart' ? 'active' : ''} cart-link`}
+            onClick={() => handleNavClick('cart')}
+          >
+            <FaShoppingCart className="cart-icon" />
+            <span>Cart</span>
+            {cart.length > 0 && (
+              <span className="cart-count">{cart.reduce((total, item) => total + (item.quantity || 1), 0)}</span>
+            )}
+          </Link>
           
           <div className="book-table-container">
             <button 
@@ -184,6 +201,8 @@ const Header = () => {
               Booking Slot
             </button>
           </div>
+          
+        
         </div>
 
         <button 
