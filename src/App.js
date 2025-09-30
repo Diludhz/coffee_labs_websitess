@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './utils/resizeObserverFix';
 import { Routes, Route, useLocation } from 'react-router-dom';
+import ErrorBoundary from './components/ErrorBoundary';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -64,13 +65,22 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <Header cart={cart} />
-      <Routes>
-        <Route path="/" element={<MainContent />} />
-        <Route path="/products" element={<Products onAddToCart={addToCart} />} />
-      </Routes>
-    </div>
+    <ErrorBoundary>
+      <div className="App">
+        <Header cart={cart} />
+        <Routes>
+          <Route path="/" element={<MainContent />} />
+          <Route 
+            path="/products" 
+            element={
+              <ErrorBoundary>
+                <Products onAddToCart={addToCart} />
+              </ErrorBoundary>
+            } 
+          />
+        </Routes>
+      </div>
+    </ErrorBoundary>
   );
 }
 

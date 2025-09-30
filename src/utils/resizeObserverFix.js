@@ -1,21 +1,20 @@
-// This file handles ResizeObserver errors to prevent console pollution
+/**
+ * This file handles ResizeObserver errors to prevent console pollution
+ * It combines error suppression with debouncing for optimal performance
+ */
 
-// Store the original handler
+// Store the original error handler
 const originalErrorHandler = window.onerror;
 
-// Override the global error handler
+// Override the global error handler to catch ResizeObserver errors
 window.onerror = function (message, source, lineno, colno, error) {
   // Ignore ResizeObserver loop errors
   if (
     (typeof message === 'string' && message.includes('ResizeObserver')) ||
-    (error?.message?.includes('ResizeObserver') === true) ||
+    (error?.message?.includes?.('ResizeObserver')) ||
     (error?.name === 'ResizeObserverError')
   ) {
-    // Optionally, you can log this in development
-    if (process.env.NODE_ENV === 'development') {
-      console.warn('ResizeObserver loop warning suppressed', { message, source, error });
-    }
-    return true; // Prevents the default error handler from running
+    return true; // Prevent default error handler
   }
 
   // Call the original handler if it exists
@@ -23,55 +22,87 @@ window.onerror = function (message, source, lineno, colno, error) {
     return originalErrorHandler(message, source, lineno, colno, error);
   }
 
-  // Let the default handler run
-  return false;
+  return false; // Let the default handler run
 };
 
-// Also handle unhandled promise rejections
+// Handle unhandled promise rejections
 window.addEventListener('unhandledrejection', function (event) {
   if (
     event.reason &&
-    (event.reason.message?.includes('ResizeObserver') ||
+    (event.reason.message?.includes?.('ResizeObserver') ||
      event.reason.name === 'ResizeObserverError')
   ) {
     event.preventDefault();
-    if (process.env.NODE_ENV === 'development') {
-      console.warn('ResizeObserver loop warning (from promise) suppressed', event.reason);
-    }
+    event.stopImmediatePropagation();
+    return false;
   }
-});
+}, { capture: true });
 
-// Add a debounced ResizeObserver to prevent loop issues
-
-const debounce = (func, wait) => {
-  let timeout;
-  return function executedFunction(...args) {
-    const later = () => {
-      clearTimeout(timeout);
-      func(...args);
-    };
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-  };
-};
-
-const originalResizeObserver = window.ResizeObserver;
-
-// Only override if not already overridden
-if (originalResizeObserver && !window.__RESIZE_OBSERVER_OVERRIDE__) {
+// Only override ResizeObserver once
+if (window.ResizeObserver && !window.__RESIZE_OBSERVER_OVERRIDE__) {
   window.__RESIZE_OBSERVER_OVERRIDE__ = true;
   
-  window.ResizeObserver = class ResizeObserver extends originalResizeObserver {
+  const OriginalResizeObserver = window.ResizeObserver;
+  const resizeObservers = new WeakMap();
+  
+  // Debounce utility function
+  const debounce = (func, wait = 100) => {
+    let timeout;
+    return function executedFunction(...args) {
+      const later = () => {
+        clearTimeout(timeout);
+        func.apply(this, args);
+      };
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    };
+  };
+  
+  // Create a safe wrapper for ResizeObserver
+  const SafeResizeObserver = class extends OriginalResizeObserver {
     constructor(callback) {
-      const debouncedCallback = debounce(callback, 100);
+      // Create a debounced version of the callback
+      const debouncedCallback = debounce((entries, observer) => {
+        try {
+          callback(entries, observer);
+        } catch (e) {
+          // Only re-throw if it's not a ResizeObserver error
+          if (!e.message?.includes('ResizeObserver') && 
+              e.name !== 'ResizeObserverError') {
+            throw e;
+          }
+        }
+      }, 50); // 50ms debounce for smooth performance
+      
       super(debouncedCallback);
+      
+      // Store the original callback for potential cleanup
+      resizeObservers.set(this, { originalCallback: callback });
+    }
+    
+    // Clean up when observer is disconnected
+    disconnect() {
+      resizeObservers.delete(this);
+      super.disconnect();
     }
   };
   
-  // Copy static properties if they exist
-  Object.entries(originalResizeObserver).forEach(([key, value]) => {
-    if (key !== 'prototype' && key !== 'name' && key !== 'length') {
-      window.ResizeObserver[key] = value;
+  // Copy static properties from the original ResizeObserver
+  try {
+    const propNames = Object.getOwnPropertyNames(OriginalResizeObserver);
+    for (const prop of propNames) {
+      if (prop === 'length' || prop === 'name' || prop === 'prototype') {
+        continue;
+      }
+      const propDesc = Object.getOwnPropertyDescriptor(OriginalResizeObserver, prop);
+      if (propDesc && !Object.prototype.hasOwnProperty.call(SafeResizeObserver, prop)) {
+        Object.defineProperty(SafeResizeObserver, prop, propDesc);
+      }
     }
-  });
+  } catch (e) {
+    // Ignore errors when copying properties
+  }
+  
+  // Replace the global ResizeObserver
+  window.ResizeObserver = SafeResizeObserver;
 }

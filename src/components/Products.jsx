@@ -353,7 +353,7 @@ const Products = ({ onAddToCart }) => {
                               {/* Product Image with Enhanced Overlay */}
                               <div className="product-image">
                                 <img
-                                  src={product.image || 'https://via.placeholder.com/400x400.png?text=No+Image'}
+                                  src={product.image1 || 'https://via.placeholder.com/400x400.png?text=No+Image'}
                                   alt={product.title}
                                   onError={(e) => {
                                     e.target.src = 'https://via.placeholder.com/400x400.png?text=Image+Not+Available';
@@ -372,21 +372,19 @@ const Products = ({ onAddToCart }) => {
                                 {/* Price and Add to Cart Section */}
                                 <div className="product-footer">
                                   <div className="price-container">
-                                    {product.discount ? (
+                                    {product.real_price > product.price ? (
                                       <>
                                         <span className="original-price">
-                                          {product.price.toFixed(2)} SAR
+                                          {product.real_price.toFixed(2)} SAR
                                         </span>
                                         <span className="final-price">
-                                          {finalPrice.toFixed(2)} SAR
+                                          {product.price.toFixed(2)} SAR
                                         </span>
-                                        <span className="discount-badge">
-                                          {product.discount}% OFF
-                                        </span>
+                                      
                                       </>
                                     ) : (
                                       <span className="final-price">
-                                        {finalPrice.toFixed(2)} SAR
+                                        {product.price.toFixed(2)} SAR
                                       </span>
                                     )}
                                   </div>
@@ -492,31 +490,63 @@ const Products = ({ onAddToCart }) => {
               const panel = document.querySelector('.action-panel');
               panel.querySelector('.panel-title').textContent = 'Sort By';
               const content = panel.querySelector('.panel-content');
-              content.innerHTML = `
-                <div class="option-group">
-                  <div class="option-title">Sort Options</div>
-                  <div class="option-item" onclick="this.parentNode.querySelectorAll('.option-item').forEach(el => el.classList.remove('active')); this.classList.add('active'); setSortBy('featured'); document.querySelector('.modal-overlay').classList.remove('active');">
-                    <input type="radio" id="sort-featured" name="sort" ${sortBy === 'featured' ? 'checked' : ''} />
-                    <label for="sort-featured" class="option-label">Featured</label>
-                  </div>
-                  <div class="option-item" onclick="this.parentNode.querySelectorAll('.option-item').forEach(el => el.classList.remove('active')); this.classList.add('active'); setSortBy('trending'); document.querySelector('.modal-overlay').classList.remove('active');">
-                    <input type="radio" id="sort-trending" name="sort" ${sortBy === 'trending' ? 'checked' : ''} />
-                    <label for="sort-trending" class="option-label">Trending</label>
-                  </div>
-                  <div class="option-item" onclick="this.parentNode.querySelectorAll('.option-item').forEach(el => el.classList.remove('active')); this.classList.add('active'); setSortBy('price-low'); document.querySelector('.modal-overlay').classList.remove('active');">
-                    <input type="radio" id="sort-price-low" name="sort" ${sortBy === 'price-low' ? 'checked' : ''} />
-                    <label for="sort-price-low" class="option-label">Price: Low to High</label>
-                  </div>
-                  <div class="option-item" onclick="this.parentNode.querySelectorAll('.option-item').forEach(el => el.classList.remove('active')); this.classList.add('active'); setSortBy('price-high'); document.querySelector('.modal-overlay').classList.remove('active');">
-                    <input type="radio" id="sort-price-high" name="sort" ${sortBy === 'price-high' ? 'checked' : ''} />
-                    <label for="sort-price-high" class="option-label">Price: High to Low</label>
-                  </div>
-                  <div class="option-item" onclick="this.parentNode.querySelectorAll('.option-item').forEach(el => el.classList.remove('active')); this.classList.add('active'); setSortBy('rating'); document.querySelector('.modal-overlay').classList.remove('active');">
-                    <input type="radio" id="sort-rating" name="sort" ${sortBy === 'rating' ? 'checked' : ''} />
-                    <label for="sort-rating" class="option-label">Top Rated</label>
-                  </div>
-                </div>
-              `;
+              // Create the sort options using DOM methods instead of innerHTML
+              content.innerHTML = '';
+              
+              const optionGroup = document.createElement('div');
+              optionGroup.className = 'option-group';
+              
+              const optionTitle = document.createElement('div');
+              optionTitle.className = 'option-title';
+              optionTitle.textContent = 'Sort Options';
+              optionGroup.appendChild(optionTitle);
+              
+              // Create sort options
+              const sortOptions = [
+                { id: 'sort-featured', value: 'featured', label: 'Featured' },
+                { id: 'sort-trending', value: 'trending', label: 'Trending' },
+                { id: 'sort-price-low', value: 'price-low', label: 'Price: Low to High' },
+                { id: 'sort-price-high', value: 'price-high', label: 'Price: High to Low' },
+                { id: 'sort-rating', value: 'rating', label: 'Top Rated' }
+              ];
+              
+              sortOptions.forEach(option => {
+                const optionItem = document.createElement('div');
+                optionItem.className = `option-item ${sortBy === option.value ? 'active' : ''}`;
+                
+                const input = document.createElement('input');
+                input.type = 'radio';
+                input.id = option.id;
+                input.name = 'sort';
+                input.checked = sortBy === option.value;
+                
+                const label = document.createElement('label');
+                label.htmlFor = option.id;
+                label.className = 'option-label';
+                label.textContent = option.label;
+                
+                // Add click handler
+                optionItem.addEventListener('click', (e) => {
+                  // Update active state
+                  optionGroup.querySelectorAll('.option-item').forEach(el => el.classList.remove('active'));
+                  optionItem.classList.add('active');
+                  
+                  // Update sort
+                  setSortBy(option.value);
+                  
+                  // Close the modal
+                  const modalOverlay = document.querySelector('.modal-overlay');
+                  if (modalOverlay) {
+                    modalOverlay.classList.remove('active');
+                  }
+                });
+                
+                optionItem.appendChild(input);
+                optionItem.appendChild(label);
+                optionGroup.appendChild(optionItem);
+              });
+              
+              content.appendChild(optionGroup);
               document.querySelector('.modal-overlay').classList.add('active');
             }}
           >
