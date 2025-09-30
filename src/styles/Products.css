@@ -940,7 +940,7 @@ body {
 }
 
 .original-price {
-  font-size: 0.9em;
+  font-size: 0.65em;
   color: var(--text-tertiary);
   text-decoration: line-through;
   font-weight: 400;
@@ -949,10 +949,11 @@ body {
 }
 
 .final-price {
-  font-size: 1.1em;
+  font-size: 0.9em;
   font-weight: 600;
   color: var(--text-primary);
   white-space: nowrap;
+  letter-spacing: 0.02em;
 }
 
 /* ===== Product Cards ===== */
@@ -1151,6 +1152,47 @@ button, .btn {
 }
 
 /* Add to cart button specific styles */
+.add-to-cart-button {
+  width: 100%;
+  padding: 0.6rem 0.5rem;
+  background-color: #1a73e8;
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  box-shadow: 0 1px 3px rgba(26, 115, 232, 0.2);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+  display: inline-block;
+}
+
+.add-to-cart-button:hover {
+  background-color: #1557b0; /* Slightly darker blue on hover */
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(26, 115, 232, 0.3);
+}
+
+.add-to-cart-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(26, 115, 232, 0.2);
+}
+
+.add-to-cart-button:disabled {
+  background-color: #e0e0e0;
+  color: #9e9e9e;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
 .add-to-cart-btn {
   background-color: #000000;
   color: #ffffff;
@@ -1373,16 +1415,18 @@ button, .btn {
 }
 
 .current-price {
-  font-size: var(--text-lg);
-  font-weight: 700;
+  font-size: 0.95rem;
+  font-weight: 600;
   color: var(--text-primary);
-  font-family: 'Inter', monospace;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.01em;
 }
 
 .original-price {
-  font-size: var(--text-sm);
+  font-size: 0.8rem;
   color: var(--text-tertiary);
   text-decoration: line-through;
+  font-weight: 300;
 }
 
 .discount-badge {
@@ -1633,11 +1677,13 @@ button, .btn {
   }
   
   .original-price {
-    font-size: 0.85em;
+    font-size: 0.6em;
+    font-weight: 400;
   }
   
   .final-price {
-    font-size: 1em;
+    font-size: 0.85em;
+    font-weight: 600;
   }
   
   .product-card {
@@ -1716,11 +1762,11 @@ button, .btn {
   }
   
   .original-price {
-    font-size: 0.8em;
+    font-size: 0.65em;
   }
   
   .final-price {
-    font-size: 0.95em;
+    font-size: 0.85em;
   }
   
   .product-title {
@@ -1764,14 +1810,71 @@ button, .btn {
   }
   
   .current-price {
-    font-size: var(--text-base);
+    font-size: 0.85rem;
+    font-weight: 600;
   }
 }
 
-/* For extremely small screens, you might want 1 column */
+/* Ensure 2 items per row on mobile devices (360px width) */
 @media (max-width: 360px) {
   .products-grid {
-    grid-template-columns: 1fr; /* 1 item on very very small screens */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.25rem;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+  
+  .add-to-cart-button {
+    font-size: 0.65rem;
+    padding: 0.4rem 0.2rem;
+    letter-spacing: 0.1px;
+    margin-top: 0.15rem;
+    border-radius: 0.25rem;
+  }
+  
+  /* Adjust product card spacing for better fit */
+  .product-card {
+    margin: 0;
+    padding: 0;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Ensure images fit well in the grid */
+  .product-image img {
+    max-height: 120px;
+    width: 100%;
+    height: auto;
+  }
+  
+  /* Adjust font sizes for better readability */
+  .product-title {
+    font-size: 1 rem;
+    font-weight: 500; /* Medium weight */
+    margin: 0.2rem 0;
+    padding: 0 0.25rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .price-container {
+    padding: 0 0.25rem;
+    margin: 0.15rem 0;
+  }
+  
+  .product-price {
+    font-size: 0.8rem;
+  }
+  
+  /* Make the 'Order in App' button more compact */
+  .add-to-cart-button {
+    padding: 0.4rem 0.2rem;
+    font-size: 0.65rem;
+    margin: 0.15rem 0.25rem 0.25rem;
+    width: calc(100% - 0.5rem);
+    white-space: nowrap;
   }
 }
 

@@ -137,7 +137,7 @@ body {
 }
 
 .book-table-btn {
-  background: linear-gradient(135deg, #EF8354 0%, #FF9F6D 100%);
+  background: linear-gradient(135deg, #001eff96 0%, #001eff 100%);
   color: white;
   text-decoration: none;
   padding: 0.6rem 1.5rem;
@@ -155,11 +155,11 @@ body {
   letter-spacing: normal;
 }
 
-.book-table-btn:hover {
+/* .book-table-btn:hover {
   background: linear-gradient(135deg, #e57362 0%, #ff8a65 100%);
   box-shadow: 0 4px 12px rgba(239, 131, 84, 0.3);
   transform: translateY(-1px);
-}
+} */
 
 .book-table-btn:active {
   transform: translateY(0);
