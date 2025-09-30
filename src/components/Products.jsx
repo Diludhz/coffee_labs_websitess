@@ -372,19 +372,21 @@ const Products = ({ onAddToCart }) => {
                                 {/* Price and Add to Cart Section */}
                                 <div className="product-footer">
                                   <div className="price-container">
-                                    {product.real_price > product.price ? (
+                                    {product.discount ? (
                                       <>
                                         <span className="original-price">
-                                          {product.real_price.toFixed(2)} SAR
-                                        </span>
-                                        <span className="final-price">
                                           {product.price.toFixed(2)} SAR
                                         </span>
-                                      
+                                        <span className="final-price">
+                                          {finalPrice.toFixed(2)} SAR
+                                        </span>
+                                        <span className="discount-badge">
+                                          {product.discount}% OFF
+                                        </span>
                                       </>
                                     ) : (
                                       <span className="final-price">
-                                        {product.price.toFixed(2)} SAR
+                                        {finalPrice.toFixed(2)} SAR
                                       </span>
                                     )}
                                   </div>
