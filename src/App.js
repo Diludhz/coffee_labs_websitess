@@ -9,6 +9,7 @@ import TopCategories from './components/TopCategories';
 import EquipmentSection from './components/EquipmentSection';
 import Products from './components/Products';
 import SuccessPartners from './components/SuccessPartners';
+import Statistics from './components/Statistics';
 import AppDownload from './components/AppDownload';
 import Footer from './components/Footer';
 
@@ -35,6 +36,7 @@ const MainContent = () => {
         <section id="home"><Hero /></section>
         <section id="about"><About /></section>
         <section id="products"><TopCategories /></section>
+        <Statistics />
         <SuccessPartners />
         <section id="equipment"><EquipmentSection /></section>
         <AppDownload />

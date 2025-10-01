@@ -63,7 +63,7 @@ const TopCategories = () => {
                   to={`/products?category=${category.categoryId}`} 
                   className="view-btn"
                 >
-                  Chat with as
+                  View Products
                 </Link>
               </div>
             </div>

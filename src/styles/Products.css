@@ -1830,7 +1830,7 @@ button, .btn {
   }
   
   .product-title {
-    font-size: 0.9rem; /* Reduced from 1rem for better mobile readability */
+    font-size: 1 rem; /* Reduced from 1rem for better mobile readability */
   }
   
   .product-description {
