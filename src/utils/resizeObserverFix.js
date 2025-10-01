@@ -1,108 +1,101 @@
 /**
- * This file handles ResizeObserver errors to prevent console pollution
- * It combines error suppression with debouncing for optimal performance
+ * ResizeObserver Error Suppression
+ * This completely silences ResizeObserver errors in production
+ * and provides debugging in development
  */
 
-// Store the original error handler
-const originalErrorHandler = window.onerror;
-
-// Override the global error handler to catch ResizeObserver errors
-window.onerror = function (message, source, lineno, colno, error) {
-  // Ignore ResizeObserver loop errors
-  if (
-    (typeof message === 'string' && message.includes('ResizeObserver')) ||
-    (error?.message?.includes?.('ResizeObserver')) ||
-    (error?.name === 'ResizeObserverError')
-  ) {
-    return true; // Prevent default error handler
-  }
-
-  // Call the original handler if it exists
-  if (typeof originalErrorHandler === 'function') {
-    return originalErrorHandler(message, source, lineno, colno, error);
-  }
-
-  return false; // Let the default handler run
-};
-
-// Handle unhandled promise rejections
-window.addEventListener('unhandledrejection', function (event) {
-  if (
-    event.reason &&
-    (event.reason.message?.includes?.('ResizeObserver') ||
-     event.reason.name === 'ResizeObserverError')
-  ) {
-    event.preventDefault();
-    event.stopImmediatePropagation();
-    return false;
-  }
-}, { capture: true });
-
-// Only override ResizeObserver once
-if (window.ResizeObserver && !window.__RESIZE_OBSERVER_OVERRIDE__) {
-  window.__RESIZE_OBSERVER_OVERRIDE__ = true;
+// Only run in browser environment
+if (typeof window !== 'undefined') {
+  const isDevelopment = process.env.NODE_ENV === 'development';
   
-  const OriginalResizeObserver = window.ResizeObserver;
-  const resizeObservers = new WeakMap();
+  // Store original error handler
+  const originalErrorHandler = window.onerror;
   
-  // Debounce utility function
-  const debounce = (func, wait = 100) => {
-    let timeout;
-    return function executedFunction(...args) {
-      const later = () => {
-        clearTimeout(timeout);
-        func.apply(this, args);
-      };
-      clearTimeout(timeout);
-      timeout = setTimeout(later, wait);
-    };
-  };
-  
-  // Create a safe wrapper for ResizeObserver
-  const SafeResizeObserver = class extends OriginalResizeObserver {
-    constructor(callback) {
-      // Create a debounced version of the callback
-      const debouncedCallback = debounce((entries, observer) => {
-        try {
-          callback(entries, observer);
-        } catch (e) {
-          // Only re-throw if it's not a ResizeObserver error
-          if (!e.message?.includes('ResizeObserver') && 
-              e.name !== 'ResizeObserverError') {
-            throw e;
-          }
-        }
-      }, 50); // 50ms debounce for smooth performance
-      
-      super(debouncedCallback);
-      
-      // Store the original callback for potential cleanup
-      resizeObservers.set(this, { originalCallback: callback });
+  // Override the global error handler
+  window.onerror = function(message, source, lineno, colno, error) {
+    // Check for ResizeObserver errors
+    const isResizeObserverError = 
+      (typeof message === 'string' && 
+       (message.includes('ResizeObserver') || 
+        message.includes('ResizeObserver loop') ||
+        message.includes('ResizeObserver loop limit exceeded'))) ||
+      (error?.message?.includes?.('ResizeObserver')) ||
+      (error?.name === 'ResizeObserverError');
+    
+    // Suppress ResizeObserver errors
+    if (isResizeObserverError) {
+      if (isDevelopment) {
+        console.debug('[ResizeObserver] Suppressed error:', { message, error });
+      }
+      return true; // Prevent default error handler
     }
     
-    // Clean up when observer is disconnected
-    disconnect() {
-      resizeObservers.delete(this);
-      super.disconnect();
+    // Call original error handler if it exists
+    if (typeof originalErrorHandler === 'function') {
+      return originalErrorHandler(message, source, lineno, colno, error);
     }
+    
+    return false;
   };
-  
-  // Copy static properties from the original ResizeObserver
-  try {
-    const propNames = Object.getOwnPropertyNames(OriginalResizeObserver);
-    for (const prop of propNames) {
-      if (prop === 'length' || prop === 'name' || prop === 'prototype') {
-        continue;
+
+  // Handle unhandled promise rejections
+  window.addEventListener('unhandledrejection', function(event) {
+    const error = event.reason || event.detail?.reason;
+    const isResizeObserverError = 
+      error?.message?.includes?.('ResizeObserver') ||
+      error?.name === 'ResizeObserverError';
+    
+    if (isResizeObserverError) {
+      if (isDevelopment) {
+        console.debug('[ResizeObserver] Suppressed unhandled rejection:', error);
       }
-      const propDesc = Object.getOwnPropertyDescriptor(OriginalResizeObserver, prop);
-      if (propDesc && !Object.prototype.hasOwnProperty.call(SafeResizeObserver, prop)) {
-        Object.defineProperty(SafeResizeObserver, prop, propDesc);
-      }
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      return false;
     }
-  } catch (e) {
-    // Ignore errors when copying properties
+  }, { capture: true });
+
+  // Only override ResizeObserver once
+  if (window.ResizeObserver && !window.__RESIZE_OBSERVER_OVERRIDE__) {
+    window.__RESIZE_OBSERVER_OVERRIDE__ = true;
+    
+    const OriginalResizeObserver = window.ResizeObserver;
+    
+    // Create a safe wrapper that swallows all errors
+    const SafeResizeObserver = class extends OriginalResizeObserver {
+      constructor(callback) {
+        // Wrap the callback to prevent errors from bubbling up
+        const safeCallback = (entries, observer) => {
+          try {
+            callback(entries, observer);
+          } catch (e) {
+            if (isDevelopment) {
+              console.debug('[ResizeObserver] Callback error:', e);
+            }
+          }
+        };
+        
+        super(safeCallback);
+      }
+      
+      // Override observe to prevent errors
+      observe(target, options) {
+        try {
+          return super.observe(target, options);
+        } catch (e) {
+          if (isDevelopment) {
+            console.debug('[ResizeObserver] Observe error:', e);
+          }
+          return null;
+        }
+      }
+    };
+    
+    // Replace the global ResizeObserver
+    window.ResizeObserver = SafeResizeObserver;
+    
+    if (isDevelopment) {
+      console.debug('[ResizeObserver] Error handling has been enabled');
+    }
   }
-  
-  // Replace the global ResizeObserver
-  window.ResizeObserver = SafeResizeObserver;
 }
