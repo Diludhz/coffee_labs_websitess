@@ -6,17 +6,14 @@ import {
   FaSearch, 
   FaTimes, 
   FaBox,
-  FaSync,
   FaBolt,
   FaFire,
   FaMugHot,
   FaWineBottle,
-  FaTint,
   FaTools,
   FaCog
 } from 'react-icons/fa';
 import { GiCoffeeBeans, GiCoffeePot, GiCoffeeCup, GiBottleVapors } from 'react-icons/gi';
-import { AiOutlineGift } from 'react-icons/ai';
 import productsData from '../data/products.json';
 import '../styles/Products.css';
 
