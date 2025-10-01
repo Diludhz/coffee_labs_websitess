@@ -390,7 +390,7 @@ const Products = ({ onAddToCart }) => {
                               {/* Product Image with Enhanced Overlay */}
                               <div className="product-image">
                                 <img
-                                  src={product.image1 || 'https://via.placeholder.com/400x400.png?text=No+Image'}
+                                  src={product.image || 'https://via.placeholder.com/400x400.png?text=No+Image'}
                                   alt={product.title}
                                   onError={(e) => {
                                     e.target.src = 'https://via.placeholder.com/400x400.png?text=Image+Not+Available';
