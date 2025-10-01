@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
 import { 
   FaArrowRight, 
   FaArrowLeft,
@@ -7,15 +8,20 @@ import {
   FaBox,
   FaSync,
   FaBolt,
-  FaFire
+  FaFire,
+  FaMugHot,
+  FaWineBottle,
+  FaTint,
+  FaTools,
+  FaCog
 } from 'react-icons/fa';
-import { GiCoffeeBeans, GiCoffeePot, GiCoffeeCup } from 'react-icons/gi';
+import { GiCoffeeBeans, GiCoffeePot, GiCoffeeCup, GiBottleVapors } from 'react-icons/gi';
 import { AiOutlineGift } from 'react-icons/ai';
-import { FaMugHot } from 'react-icons/fa';
 import productsData from '../data/products.json';
 import '../styles/Products.css';
 
 const Products = ({ onAddToCart }) => {
+  const location = useLocation();
   const [activeCategory, setActiveCategory] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
@@ -26,6 +32,35 @@ const Products = ({ onAddToCart }) => {
   const [isLoading, setIsLoading] = useState(false);
   const productsPerPage = 24;
   const searchRef = useRef(null);
+
+  // Handle URL parameters for category filtering
+  useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    const categoryParam = searchParams.get('category');
+    
+    if (categoryParam) {
+      // Map display names to category IDs
+      const categoryMapping = {
+        'Coffee Machines': 'coffee-machines',
+        'Coffee Powders': 'coffee-powders',
+        'Syrups': 'syrups',
+        'Accessories': 'accessories',
+        'Tea Milk': 'tea-milk',
+        'Spreads': 'spreads',
+        'Cleaners Filters': 'cleaners-filters',
+        'Chocolate Chip': 'chocolate-chip',
+        'Packing': 'packing',
+        'Sauce': 'sauce',
+        'Coffee': 'coffee'
+      };
+      
+      const categoryId = categoryMapping[categoryParam] || categoryParam;
+      setActiveCategory(categoryId);
+      
+      // Scroll to top when category changes
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [location.search]);
 
   // Enhanced categories with unique icons and counts
   const categories = [
@@ -47,12 +82,17 @@ const Products = ({ onAddToCart }) => {
   function getCategoryIcon(category) {
     const icons = {
       'all': <FaBox className="category-icon" />,
-      'coffee-beans': <GiCoffeeBeans className="category-icon" />,
-      'brewing-equipment': <GiCoffeePot className="category-icon" />,
-      'grinders': <GiCoffeeCup className="category-icon" />,
-      'accessories': <FaMugHot className="category-icon" />,
-      'gift-sets': <AiOutlineGift className="category-icon" />,
-      'subscriptions': <FaSync className="category-icon" />
+      'tea-milk': <FaMugHot className="category-icon" />,
+      'spreads': <GiCoffeeBeans className="category-icon" />,
+      'coffee-machines': <GiCoffeePot className="category-icon" />,
+      'cleaners-filters': <FaTools className="category-icon" />,
+      'chocolate-chip': <GiCoffeeBeans className="category-icon" />,
+      'accessories': <FaCog className="category-icon" />,
+      'packing': <FaBox className="category-icon" />,
+      'coffee-powders': <GiCoffeeBeans className="category-icon" />,
+      'sauce': <FaWineBottle className="category-icon" />,
+      'syrups': <GiBottleVapors className="category-icon" />,
+      'coffee': <GiCoffeeCup className="category-icon" />
     };
     return icons[category] || <FaBox className="category-icon" />;
   }
