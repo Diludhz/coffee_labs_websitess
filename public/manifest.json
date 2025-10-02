@@ -1,7 +1,6 @@
 {
-  "short_name": "Coffee Labs",
-  "name": "Coffee Labs - Premium Coffee Experience",
-  "description": "Discover the finest coffee experience at Coffee Labs. Premium quality beans, expertly roasted for the perfect cup every time.",
+  "short_name": "React App",
+  "name": "Create React App Sample",
   "icons": [
     {
       "src": "favicon.ico",
@@ -9,21 +8,18 @@
       "type": "image/x-icon"
     },
     {
-      "src": "assets/logo.png",
+      "src": "logo192.png",
       "type": "image/png",
-      "sizes": "192x192",
-      "purpose": "any maskable"
+      "sizes": "192x192"
     },
     {
-      "src": "assets/logo.png",
+      "src": "logo512.png",
       "type": "image/png",
-      "sizes": "512x512",
-      "purpose": "any maskable"
+      "sizes": "512x512"
     }
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#6F4E37",
-  "background_color": "#ffffff",
-  "orientation": "portrait"
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
 }
