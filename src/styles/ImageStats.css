@@ -1,0 +1,78 @@
+/* ImageStats.css */
+.image-stats-section {
+  padding: 0;
+  margin: 0;
+  background: #ffffff;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.image-stats-container {
+  width: 100%;
+  overflow: hidden;
+  padding: 10px 0;
+}
+
+.image-stats-marquee {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: scroll 40s linear infinite;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.image-stat-item {
+  flex: 0 0 auto;
+  width: 250px;
+  height: 150px;
+  margin: 0 5px;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.image-stat-item:hover {
+  transform: scale(1.02);
+}
+
+.stat-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Pause on hover */
+.image-stats-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .image-stat-item {
+    width: 200px;
+    height: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .image-stat-item {
+    width: 180px;
+    height: 100px;
+    margin: 0 3px;
+  }
+  
+  .image-stats-marquee {
+    animation-duration: 30s; /* Faster on mobile */
+  }
+}

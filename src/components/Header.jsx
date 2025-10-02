@@ -170,15 +170,7 @@ const Header = ({ cart = [] }) => {
           
          
           
-          <button 
-            className={`nav-link ${activeLink === 'equipment' ? 'active' : ''}`}
-            onClick={() => {
-              scrollToSection('equipment');
-              handleNavClick('equipment');
-            }}
-          >
-            Equipment
-          </button>
+         
 <div className="book-table-container">
             <button 
               className="book-table-btn"
