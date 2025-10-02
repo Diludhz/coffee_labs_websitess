@@ -1001,18 +1001,20 @@ body {
   text-overflow: ellipsis; /* Add ellipsis if needed */
 }
 
+/* UPDATED: Original price with reduced font size and lighter weight */
 .original-price {
-  font-size: 0.7em;
+  font-size: 0.65em; /* Reduced from 0.7em */
   color: var(--text-tertiary);
   text-decoration: line-through;
-  font-weight: 300;
+  font-weight: 300; /* Reduced from 400 */
   opacity: 0.7;
   white-space: nowrap;
 }
 
+/* UPDATED: Final price with bold weight */
 .final-price {
   font-size: 0.95em;
-  font-weight: 500;
+  font-weight: 700; /* Increased from 500 to 700 for bolder text */
   color: var(--text-primary);
   white-space: nowrap;
 }
@@ -1043,23 +1045,25 @@ body {
       vertical-align: middle;
     }
     
+    /* UPDATED: Original price styling */
     .original-price {
       display: flex;
       align-items: center;
       text-decoration: line-through;
       color: var(--text-tertiary);
-      font-size: 1.1em;
-      font-weight: 500;
+      font-size: 0.75em; /* Reduced size */
+      font-weight: 300; /* Lighter weight */
       white-space: nowrap;
     }
     
+    /* UPDATED: Final price styling */
     .final-price {
       display: flex;
       align-items: center;
-      font-weight: 700;
+      font-weight: 700; /* Bold weight */
       color: var(--primary);
       white-space: nowrap;
-      font-size: 1.2em;
+      font-size: 1.1em; /* Slightly larger for emphasis */
     }
   }
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1472,11 +1476,12 @@ button, .btn {
   font-family: 'Inter', sans-serif;
 }
 
+/* UPDATED: Original price styling */
 .original-price {
-  font-size: 0.8rem;
+  font-size: 0.7rem; /* Reduced from 0.8rem */
   color: var(--text-tertiary);
   text-decoration: line-through;
-  font-weight: 300;
+  font-weight: 300; /* Reduced from 400 */
 }
 
 .discount-badge {
@@ -1759,12 +1764,15 @@ button, .btn {
     margin: 0.3rem 0;
   }
   
+  /* UPDATED: Mobile original price */
   .original-price {
-    font-size: 0.7em;
+    font-size: 0.6em; /* Reduced from 0.7em */
   }
   
+  /* UPDATED: Mobile final price */
   .final-price {
     font-size: 0.9em;
+    font-weight: 700; /* Bold weight maintained */
   }
   
   .product-card {
@@ -1842,12 +1850,15 @@ button, .btn {
     margin: 0.2rem 0;
   }
   
+  /* UPDATED: Very small screen original price */
   .original-price {
-    font-size: 0.65em;
+    font-size: 0.55em; /* Reduced from 0.65em */
   }
   
+  /* UPDATED: Very small screen final price */
   .final-price {
     font-size: 0.85em;
+    font-weight: 700; /* Bold weight maintained */
   }
   
   .product-title {

@@ -71,7 +71,7 @@ body {
   display: none;
   font-size: 1.5rem;
   font-weight: 700;
-  color: #2D3142;
+  color: #3D2F2F; /* Dark brown */
 }
 
 .logo-image {
@@ -95,7 +95,7 @@ body {
 .nav-link {
   background: none;
   border: none;
-  color: #2D3142;
+  color: #3D2F2F; /* Dark brown */
   text-decoration: none;
   font-weight: 500;
   font-size: 0.95rem;
@@ -129,6 +129,21 @@ body {
 .nav-link.active {
   color: #EF8354;
   font-weight: 600;
+  background: none !important;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Remove default browser focus styles */
+.nav-link:focus {
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Update focus-visible styles */
+.nav-link:focus-visible {
+  outline: 2px solid #EF8354;
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
 .book-table-container {

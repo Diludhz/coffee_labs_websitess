@@ -1,12 +1,12 @@
 /* Hero Section */
 :root {
-  --primary: #4A4E69;
-  --primary-light: #6C7A9C;
-  --primary-dark: #2D3142;
-  --accent: #EF8354;
-  --accent-light: #FF9F6D;
-  --text-dark: #1f2937;
-  --text-light: #4b5563;
+  --primary: #5C4D4D; /* Warm brown */
+  --primary-light: #8B7D7D; /* Lighter warm brown */
+  --primary-dark: #3D2F2F; /* Darker warm brown */
+  --accent: #EF8354; /* Orange accent */
+  --accent-light: #FF9F6D; /* Lighter orange */
+  --text-dark: #2D2424; /* Dark brown */
+  --text-light: #5C4D4D; /* Warm brown */
   --white: #ffffff;
   --off-white: #f8f9fa;
   --gradient: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
