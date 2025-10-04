@@ -6,11 +6,12 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
 import TopCategories from './components/TopCategories';
+import EquipmentSection from './components/EquipmentSection';
 import Products from './components/Products';
 import SuccessPartners from './components/SuccessPartners';
-import Statistics from './components/Statistics';
 import AppDownload from './components/AppDownload';
-import ImageStats from './components/ImageStats';
+import ImageStas from './components/ImageStas';
+import Statistics from './components/Statistics';
 import Footer from './components/Footer';
 
 // Main content component for the landing page
@@ -35,11 +36,16 @@ const MainContent = () => {
       <main>
         <section id="home"><Hero /></section>
         <section id="about"><About /></section>
-        <section id="products"><TopCategories /></section>
         <Statistics />
+        <section id="products">
+          <TopCategories />
+        </section>
         <SuccessPartners />
+        <section id="equipment">
+          <EquipmentSection />
+        </section>
         <AppDownload />
-        <ImageStats />
+        <ImageStas />
       </main>
       <Footer />
     </>
@@ -65,6 +71,7 @@ function App() {
       return [...prevCart, { ...product, quantity: 1 }];
     });
   };
+
   return (
     <ErrorBoundary>
       <div className="App">

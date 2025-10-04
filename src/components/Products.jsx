@@ -1,70 +1,83 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useLocation } from 'react-router-dom';
 import { 
   FaArrowRight, 
   FaArrowLeft,
   FaSearch, 
   FaTimes, 
+  FaBolt, 
+  FaFire, 
+  FaSlidersH,
+  FaSortAmountDown,
+  FaTags,
   FaBox,
-  FaBolt,
-  FaFire,
+  FaBoxOpen,
   FaMugHot,
-  FaWineBottle,
-  FaTools,
-  FaCog
+  FaSync
 } from 'react-icons/fa';
-import { GiCoffeeBeans, GiCoffeePot, GiCoffeeCup, GiBottleVapors } from 'react-icons/gi';
+import { AiOutlineGift } from 'react-icons/ai';
+import { 
+  GiCoffeeBeans, 
+  GiCoffeePot, 
+  GiCoffeeCup 
+} from 'react-icons/gi';
 import productsData from '../data/products.json';
 import '../styles/Products.css';
 
 const Products = ({ onAddToCart }) => {
-  const location = useLocation();
-  const [activeCategory, setActiveCategory] = useState('all');
+  const [showFilters, setShowFilters] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [filteredProducts, setFilteredProducts] = useState([]);
-  const [showFilters, setShowFilters] = useState(false);
-  const [priceRange, setPriceRange] = useState([0, 1000]);
+  const [activeMobileTab, setActiveMobileTab] = useState(null);
+  // Removed unused state variables
+  // const [expandedFilters, setExpandedFilters] = useState({
+  //   categories: true,
+  //   price: true,
+  //   rating: true,
+  //   availability: true
+  // });
+
+  // Handle slider thumb mouse down event
+  const handleThumbMouseDown = (e, type) => {
+    e.preventDefault();
+    
+    const slider = e.target.closest('.price-slider');
+    const sliderRect = slider.getBoundingClientRect();
+    const sliderWidth = sliderRect.width;
+    
+    const moveHandler = (moveEvent) => {
+      const x = Math.min(Math.max(0, moveEvent.clientX - sliderRect.left), sliderWidth);
+      const percentage = (x / sliderWidth) * 100;
+      const value = Math.round((percentage / 100) * 1000);
+      
+      if (type === 'min') {
+        setPriceRange(prev => [Math.min(value, prev[1] - 10), prev[1]]);
+      } else {
+        setPriceRange(prev => [prev[0], Math.max(value, prev[0] + 10)]);
+      }
+    };
+    
+    const upHandler = () => {
+      document.removeEventListener('mousemove', moveHandler);
+      document.removeEventListener('mouseup', upHandler);
+    };
+    
+    document.addEventListener('mousemove', moveHandler);
+    document.addEventListener('mouseup', upHandler);
+  };
   const [sortBy, setSortBy] = useState('featured');
+  const [activeCategory, setActiveCategory] = useState('all');
+  const [priceRange, setPriceRange] = useState([0, 1000]);
   const [isLoading, setIsLoading] = useState(false);
   const productsPerPage = 24;
   const searchRef = useRef(null);
-
-  // Handle URL parameters for category filtering
-  useEffect(() => {
-    const searchParams = new URLSearchParams(location.search);
-    const categoryParam = searchParams.get('category');
-    
-    if (categoryParam) {
-      // Map display names to category IDs
-      const categoryMapping = {
-        'Coffee Machines': 'coffee-machines',
-        'Coffee Powders': 'coffee-powders',
-        'Syrups': 'syrups',
-        'Accessories': 'accessories',
-        'Tea Milk': 'tea-milk',
-        'Spreads': 'spreads',
-        'Cleaners Filters': 'cleaners-filters',
-        'Chocolate Chip': 'chocolate-chip',
-        'Packing': 'packing',
-        'Sauce': 'sauce',
-        'Coffee': 'coffee'
-      };
-      
-      const categoryId = categoryMapping[categoryParam] || categoryParam;
-      setActiveCategory(categoryId);
-      
-      // Scroll to top when category changes
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  }, [location.search]);
 
   // Enhanced categories with unique icons and counts
   const categories = [
     { 
       id: 'all', 
       name: 'All Products', 
-      icon: '📦',
+      icon: <FaBoxOpen />,
       count: productsData.Products.reduce((total, cat) => total + cat.items.length, 0)
     },
     ...productsData.Products.map(category => ({
@@ -79,17 +92,12 @@ const Products = ({ onAddToCart }) => {
   function getCategoryIcon(category) {
     const icons = {
       'all': <FaBox className="category-icon" />,
-      'tea-milk': <FaMugHot className="category-icon" />,
-      'spreads': <GiCoffeeBeans className="category-icon" />,
-      'coffee-machines': <GiCoffeePot className="category-icon" />,
-      'cleaners-filters': <FaTools className="category-icon" />,
-      'chocolate-chip': <GiCoffeeBeans className="category-icon" />,
-      'accessories': <FaCog className="category-icon" />,
-      'packing': <FaBox className="category-icon" />,
-      'coffee-powders': <GiCoffeeBeans className="category-icon" />,
-      'sauce': <FaWineBottle className="category-icon" />,
-      'syrups': <GiBottleVapors className="category-icon" />,
-      'coffee': <GiCoffeeCup className="category-icon" />
+      'coffee-beans': <GiCoffeeBeans className="category-icon" />,
+      'brewing-equipment': <GiCoffeePot className="category-icon" />,
+      'grinders': <GiCoffeeCup className="category-icon" />,
+      'accessories': <FaMugHot className="category-icon" />,
+      'gift-sets': <AiOutlineGift className="category-icon" />,
+      'subscriptions': <FaSync className="category-icon" />
     };
     return icons[category] || <FaBox className="category-icon" />;
   }
@@ -99,6 +107,21 @@ const Products = ({ onAddToCart }) => {
     const category = categories.find(cat => cat.id === activeCategory);
     return category ? category.name : 'All Products';
   }
+
+  // Toggle mobile tab function
+  const toggleMobileTab = (tab) => {
+    setActiveMobileTab(activeMobileTab === tab ? null : tab);
+  };
+
+  // Toggle filters function
+  const toggleFilters = () => {
+    setShowFilters(!showFilters);
+    if (!showFilters) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  };
 
   // Enhanced product filtering with loading state
   useEffect(() => {
@@ -162,14 +185,17 @@ const Products = ({ onAddToCart }) => {
 
       setFilteredProducts(allProducts);
       setIsLoading(false);
-    }, 500);
-    return () => clearTimeout(filterTimer);
-  }, [activeCategory, searchQuery, priceRange, sortBy]);
+    }, 500); // Simulate loading
 
-  // Enhanced filter handlers
-  const toggleFilters = () => {
-    setShowFilters(!showFilters);
-  };
+    return () => clearTimeout(filterTimer);
+  }, [searchQuery, activeCategory, priceRange, sortBy]); // Fixed: Added closing bracket and parenthesis
+
+  // Cleanup function for body overflow
+  useEffect(() => {
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, []);
 
   // Add to cart handler
   const addToCart = (product, e) => {
@@ -242,26 +268,50 @@ const Products = ({ onAddToCart }) => {
               <h1 className="products-heading">Our Products</h1>
               <div className="search-container">
                 <div className="search-box">
+                  <FaSearch className="search-icon" />
                   <input
                     ref={searchRef}
                     type="text"
-                    placeholder="Search products, categories, or descriptions..."
+                    placeholder="Search products..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     className="search-input"
+                    onFocus={() => setShowFilters(false)}
                   />
-                  <button 
-                    className="search-button"
-                    onClick={() => searchRef.current.focus()}
-                    aria-label="Search"
-                  >
-                    <FaSearch />
-                    <span>Search</span>
-                  </button>
                 </div>
               </div>
             </div>
           </section>
+          
+          {/* Mobile Filters Bar */}
+          <div className="mobile-filters-bar">
+            <div className="mobile-filters-inner">
+              <button 
+                className={`mobile-filter-btn ${activeMobileTab === 'filters' ? 'active' : ''}`}
+                onClick={() => toggleMobileTab('filters')}
+              >
+                <FaSlidersH /> Filters
+              </button>
+              <button 
+                className={`mobile-filter-btn ${activeMobileTab === 'sort' ? 'active' : ''}`}
+                onClick={() => toggleMobileTab('sort')}
+              >
+                <FaSortAmountDown /> Sort
+              </button>
+              <button 
+                className={`mobile-filter-btn ${activeMobileTab === 'categories' ? 'active' : ''}`}
+                onClick={() => toggleMobileTab('categories')}
+              >
+                <FaTags /> Categories
+              </button>
+            </div>
+          </div>
+          
+          {/* Filter Overlay */}
+          <div 
+            className={`filter-overlay ${showFilters ? 'active' : ''}`}
+            onClick={() => setShowFilters(false)}
+          />
 
           {/* Main Content */}
           <div className="main-content">
@@ -282,27 +332,79 @@ const Products = ({ onAddToCart }) => {
               
                   {/* Categories Section */}
                   <div className="filter-group">
-                    <label className="filter-label">Categories</label>
-                    <div className="category-tags">
-                      {categories.map(category => (
-                        <button
-                          key={category.id}
-                          className={`category-tag ${activeCategory === category.id ? 'active' : ''}`}
-                          onClick={() => setActiveCategory(category.id)}
-                        >
-                          <span className="category-icon">{category.icon}</span>
-                          <div className="category-info">
-                            <span className="category-name">{category.name}</span>
-                            <span className="category-count">({category.count})</span>
-                          </div>
-                        </button>
-                      ))}
+                    <div className="price-range-header">
+                      <h3 className="price-range-title">Categories</h3>
                     </div>
+                    <div className="category-tags">
+                        {categories.map(category => (
+                          <div 
+                            key={category.id}
+                            className={`category-tag ${activeCategory === category.id ? 'active' : ''}`}
+                            onClick={() => setActiveCategory(category.id)}
+                          >
+                            <div className="category-info">
+                              <span className="category-name">{category.name}</span>
+                              <span className="category-count">({category.count})</span>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                  </div>
+                  {/* Price Range Section */}
+                  <div className="filter-group">
+                    <div className="price-range-header">
+                      <h3 className="price-range-title">Price Range</h3>
+                    </div>
+                    <div className="price-range-content">
+                        <div className="price-inputs">
+                          <div className="price-input">
+                            <label>Min Price (SAR)</label>
+                            <input 
+                              type="number" 
+                              value={priceRange[0]} 
+                              onChange={(e) => setPriceRange([parseInt(e.target.value) || 0, priceRange[1]])}
+                              min="0"
+                            />
+                          </div>
+                          <div className="price-input">
+                            <label>Max Price (SAR)</label>
+                            <input 
+                              type="number" 
+                              value={priceRange[1]} 
+                              onChange={(e) => setPriceRange([priceRange[0], parseInt(e.target.value) || 1000])}
+                              min={priceRange[0]}
+                            />
+                          </div>
+                        </div>
+                        <div className="price-slider">
+                          <div 
+                            className="track" 
+                            style={{
+                              left: '0%',
+                              right: `${100 - (priceRange[1] / 1000 * 100)}%`
+                            }} 
+                          />
+                          <div 
+                            className="thumb" 
+                            style={{ left: `${priceRange[0] / 1000 * 100}%` }}
+                            onMouseDown={(e) => handleThumbMouseDown(e, 'min')}
+                          />
+                          <div 
+                            className="thumb" 
+                            style={{ left: `${priceRange[1] / 1000 * 100}%` }}
+                            onMouseDown={(e) => handleThumbMouseDown(e, 'max')}
+                          />
+                        </div>
+                      </div>
+                  
+                  </div>
 
                     {/* Sort Options */}
-                    <div className="filter-group">
-                      <label className="filter-label">Sort By</label>
-                      <div className="sort-options">
+                  <div className="filter-group">
+                    <div className="price-range-header">
+                      <h3 className="price-range-title">Sort By</h3>
+                    </div>
+                    <div className="sort-options">
                         <button 
                           className={`sort-option ${sortBy === 'featured' ? 'active' : ''}`}
                           onClick={() => setSortBy('featured')}
@@ -334,17 +436,16 @@ const Products = ({ onAddToCart }) => {
                           Top Rated
                         </button>
                       </div>
-                    </div>
+                  </div>
 
-                    {/* Filter Actions */}
-                    <div className="filter-actions">
-                      <button 
-                        className="reset-filters"
-                        onClick={resetAllFilters}
-                      >
-                        Reset All Filters
-                      </button>
-                    </div>
+                  {/* Filter Actions */}
+                  <div className="filter-actions">
+                    <button 
+                      className="reset-filters"
+                      onClick={resetAllFilters}
+                    >
+                      Reset All Filters
+                    </button>
                   </div>
                 </aside>
 
@@ -362,7 +463,6 @@ const Products = ({ onAddToCart }) => {
                         )}
                       </p>
                     </div>
-                   
                   </div>
 
                   {/* Loading State */}
@@ -390,7 +490,7 @@ const Products = ({ onAddToCart }) => {
                               {/* Product Image with Enhanced Overlay */}
                               <div className="product-image">
                                 <img
-                                  src={product.image || 'https://via.placeholder.com/400x400.png?text=No+Image'}
+                                  src={product.image1 || 'https://via.placeholder.com/400x400.png?text=No+Image'}
                                   alt={product.title}
                                   onError={(e) => {
                                     e.target.src = 'https://via.placeholder.com/400x400.png?text=Image+Not+Available';
@@ -527,66 +627,68 @@ const Products = ({ onAddToCart }) => {
             className="mobile-action-btn"
             onClick={() => {
               const panel = document.querySelector('.action-panel');
-              panel.querySelector('.panel-title').textContent = 'Sort By';
-              const content = panel.querySelector('.panel-content');
-              // Create the sort options using DOM methods instead of innerHTML
-              content.innerHTML = '';
-              
-              const optionGroup = document.createElement('div');
-              optionGroup.className = 'option-group';
-              
-              const optionTitle = document.createElement('div');
-              optionTitle.className = 'option-title';
-              optionTitle.textContent = 'Sort Options';
-              optionGroup.appendChild(optionTitle);
-              
-              // Create sort options
-              const sortOptions = [
-                { id: 'sort-featured', value: 'featured', label: 'Featured' },
-                { id: 'sort-trending', value: 'trending', label: 'Trending' },
-                { id: 'sort-price-low', value: 'price-low', label: 'Price: Low to High' },
-                { id: 'sort-price-high', value: 'price-high', label: 'Price: High to Low' },
-                { id: 'sort-rating', value: 'rating', label: 'Top Rated' }
-              ];
-              
-              sortOptions.forEach(option => {
-                const optionItem = document.createElement('div');
-                optionItem.className = `option-item ${sortBy === option.value ? 'active' : ''}`;
+              if (panel) {
+                panel.querySelector('.panel-title').textContent = 'Sort By';
+                const content = panel.querySelector('.panel-content');
+                // Create the sort options using DOM methods instead of innerHTML
+                content.innerHTML = '';
                 
-                const input = document.createElement('input');
-                input.type = 'radio';
-                input.id = option.id;
-                input.name = 'sort';
-                input.checked = sortBy === option.value;
+                const optionGroup = document.createElement('div');
+                optionGroup.className = 'option-group';
                 
-                const label = document.createElement('label');
-                label.htmlFor = option.id;
-                label.className = 'option-label';
-                label.textContent = option.label;
+                const optionTitle = document.createElement('div');
+                optionTitle.className = 'option-title';
+                optionTitle.textContent = 'Sort Options';
+                optionGroup.appendChild(optionTitle);
                 
-                // Add click handler
-                optionItem.addEventListener('click', (e) => {
-                  // Update active state
-                  optionGroup.querySelectorAll('.option-item').forEach(el => el.classList.remove('active'));
-                  optionItem.classList.add('active');
+                // Create sort options
+                const sortOptions = [
+                  { id: 'sort-featured', value: 'featured', label: 'Featured' },
+                  { id: 'sort-trending', value: 'trending', label: 'Trending' },
+                  { id: 'sort-price-low', value: 'price-low', label: 'Price: Low to High' },
+                  { id: 'sort-price-high', value: 'price-high', label: 'Price: High to Low' },
+                  { id: 'sort-rating', value: 'rating', label: 'Top Rated' }
+                ];
+                
+                sortOptions.forEach(option => {
+                  const optionItem = document.createElement('div');
+                  optionItem.className = `option-item ${sortBy === option.value ? 'active' : ''}`;
                   
-                  // Update sort
-                  setSortBy(option.value);
+                  const input = document.createElement('input');
+                  input.type = 'radio';
+                  input.id = option.id;
+                  input.name = 'sort';
+                  input.checked = sortBy === option.value;
                   
-                  // Close the modal
-                  const modalOverlay = document.querySelector('.modal-overlay');
-                  if (modalOverlay) {
-                    modalOverlay.classList.remove('active');
-                  }
+                  const label = document.createElement('label');
+                  label.htmlFor = option.id;
+                  label.className = 'option-label';
+                  label.textContent = option.label;
+                  
+                  // Add click handler
+                  optionItem.addEventListener('click', (e) => {
+                    // Update active state
+                    optionGroup.querySelectorAll('.option-item').forEach(el => el.classList.remove('active'));
+                    optionItem.classList.add('active');
+                    
+                    // Update sort
+                    setSortBy(option.value);
+                    
+                    // Close the modal
+                    const modalOverlay = document.querySelector('.modal-overlay');
+                    if (modalOverlay) {
+                      modalOverlay.classList.remove('active');
+                    }
+                  });
+                  
+                  optionItem.appendChild(input);
+                  optionItem.appendChild(label);
+                  optionGroup.appendChild(optionItem);
                 });
                 
-                optionItem.appendChild(input);
-                optionItem.appendChild(label);
-                optionGroup.appendChild(optionItem);
-              });
-              
-              content.appendChild(optionGroup);
-              document.querySelector('.modal-overlay').classList.add('active');
+                content.appendChild(optionGroup);
+                document.querySelector('.modal-overlay').classList.add('active');
+              }
             }}
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -688,6 +790,5 @@ const Products = ({ onAddToCart }) => {
     </div>
   );
 };
-
 
 export default Products;
