@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
 import { 
   FaArrowRight, 
   FaArrowLeft,
@@ -37,31 +38,47 @@ const Products = ({ onAddToCart }) => {
   //   availability: true
   // });
 
-  // Handle slider thumb mouse down event
-  const handleThumbMouseDown = (e, type) => {
+  // Handle slider thumb drag with pointer events (works for mouse + touch)
+  const handleThumbPointerDown = (e, type) => {
     e.preventDefault();
-    
-    const slider = e.target.closest('.price-slider');
+    const slider = e.currentTarget.closest('.price-slider');
+    if (!slider) return;
+
     const sliderRect = slider.getBoundingClientRect();
     const sliderWidth = sliderRect.width;
-    
-    const moveHandler = (moveEvent) => {
-      const x = Math.min(Math.max(0, moveEvent.clientX - sliderRect.left), sliderWidth);
+
+    const getClientX = (evt) => {
+      if (evt.touches && evt.touches.length) return evt.touches[0].clientX;
+      if (evt.changedTouches && evt.changedTouches.length) return evt.changedTouches[0].clientX;
+      return evt.clientX;
+    };
+
+    const moveHandler = (evt) => {
+      const clientX = getClientX(evt);
+      const x = Math.min(Math.max(0, clientX - sliderRect.left), sliderWidth);
       const percentage = (x / sliderWidth) * 100;
       const value = Math.round((percentage / 100) * 1000);
-      
+
       if (type === 'min') {
-        setPriceRange(prev => [Math.min(value, prev[1] - 10), prev[1]]);
+        setPriceRange(prev => [Math.min(Math.max(0, value), prev[1] - 10), prev[1]]);
       } else {
-        setPriceRange(prev => [prev[0], Math.max(value, prev[0] + 10)]);
+        setPriceRange(prev => [prev[0], Math.max(Math.min(1000, value), prev[0] + 10)]);
       }
     };
-    
+
     const upHandler = () => {
+      document.removeEventListener('pointermove', moveHandler);
+      document.removeEventListener('pointerup', upHandler);
+      document.removeEventListener('touchmove', moveHandler);
+      document.removeEventListener('touchend', upHandler);
       document.removeEventListener('mousemove', moveHandler);
       document.removeEventListener('mouseup', upHandler);
     };
-    
+
+    document.addEventListener('pointermove', moveHandler, { passive: false });
+    document.addEventListener('pointerup', upHandler);
+    document.addEventListener('touchmove', moveHandler, { passive: false });
+    document.addEventListener('touchend', upHandler);
     document.addEventListener('mousemove', moveHandler);
     document.addEventListener('mouseup', upHandler);
   };
@@ -71,6 +88,7 @@ const Products = ({ onAddToCart }) => {
   const [isLoading, setIsLoading] = useState(false);
   const productsPerPage = 24;
   const searchRef = useRef(null);
+  const location = useLocation();
 
   // Enhanced categories with unique icons and counts
   const categories = [
@@ -120,6 +138,16 @@ const Products = ({ onAddToCart }) => {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'auto';
+    }
+  };
+
+  // Close filters automatically on mobile after a selection
+  const closeFiltersIfMobile = () => {
+    if (typeof window !== 'undefined' && window.innerWidth <= 1024) {
+      setShowFilters(false);
+      document.body.style.overflow = 'auto';
+      const overlay = document.querySelector('.modal-overlay');
+      if (overlay) overlay.classList.remove('active');
     }
   };
 
@@ -189,6 +217,17 @@ const Products = ({ onAddToCart }) => {
 
     return () => clearTimeout(filterTimer);
   }, [searchQuery, activeCategory, priceRange, sortBy]); // Fixed: Added closing bracket and parenthesis
+
+  // Read category from query string on first load
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const categoryFromQuery = params.get('category');
+    if (categoryFromQuery) {
+      setActiveCategory(categoryFromQuery);
+      setCurrentPage(1);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // Cleanup function for body overflow
   useEffect(() => {
@@ -340,7 +379,7 @@ const Products = ({ onAddToCart }) => {
                           <div 
                             key={category.id}
                             className={`category-tag ${activeCategory === category.id ? 'active' : ''}`}
-                            onClick={() => setActiveCategory(category.id)}
+                            onClick={() => { setActiveCategory(category.id); closeFiltersIfMobile(); }}
                           >
                             <div className="category-info">
                               <span className="category-name">{category.name}</span>
@@ -380,19 +419,23 @@ const Products = ({ onAddToCart }) => {
                           <div 
                             className="track" 
                             style={{
-                              left: '0%',
+                              left: `${priceRange[0] / 1000 * 100}%`,
                               right: `${100 - (priceRange[1] / 1000 * 100)}%`
                             }} 
                           />
                           <div 
                             className="thumb" 
                             style={{ left: `${priceRange[0] / 1000 * 100}%` }}
-                            onMouseDown={(e) => handleThumbMouseDown(e, 'min')}
+                            onPointerDown={(e) => handleThumbPointerDown(e, 'min')}
+                            onMouseDown={(e) => handleThumbPointerDown(e, 'min')}
+                            onTouchStart={(e) => handleThumbPointerDown(e, 'min')}
                           />
                           <div 
                             className="thumb" 
                             style={{ left: `${priceRange[1] / 1000 * 100}%` }}
-                            onMouseDown={(e) => handleThumbMouseDown(e, 'max')}
+                            onPointerDown={(e) => handleThumbPointerDown(e, 'max')}
+                            onMouseDown={(e) => handleThumbPointerDown(e, 'max')}
+                            onTouchStart={(e) => handleThumbPointerDown(e, 'max')}
                           />
                         </div>
                       </div>
@@ -603,11 +646,12 @@ const Products = ({ onAddToCart }) => {
       </div>
 
       {/* Mobile Action Buttons */}
+      {!showFilters && (
       <div className="mobile-actions">
         <div className="mobile-actions-container">
           <button 
             className="mobile-action-btn"
-            onClick={() => setShowFilters(true)}
+            onClick={toggleFilters}
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <line x1="4" y1="21" x2="4" y2="14"></line>
@@ -701,6 +745,7 @@ const Products = ({ onAddToCart }) => {
           </button>
         </div>
       </div>
+      )}
 
       {/* Modal Overlay */}
       <div className="modal-overlay" onClick={(e) => {
@@ -758,6 +803,7 @@ const Products = ({ onAddToCart }) => {
                   onClick={() => {
                     setActiveCategory(category.id);
                     setCurrentPage(1);
+                    closeFiltersIfMobile();
                   }}
                 >
                   <input 
@@ -774,15 +820,20 @@ const Products = ({ onAddToCart }) => {
               ))}
             </div>
           </div>
-          <div className="panel-footer">
+          <div className="panel-footer" style={{ display: 'flex' }}>
             <button 
-              className="apply-button"
+              className="reset-filters"
               onClick={() => {
-                document.querySelector('.modal-overlay').classList.remove('active');
-                setShowFilters(false);
+                // Reset filters to defaults
+                setSearchQuery('');
+                setActiveCategory('all');
+                setPriceRange([0, 1000]);
+                setSortBy('featured');
+                setCurrentPage(1);
+                closeFiltersIfMobile();
               }}
             >
-              Apply Filters
+              Reset All Filters
             </button>
           </div>
         </div>

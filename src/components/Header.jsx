@@ -179,15 +179,6 @@ const Header = ({ cart = [] }) => {
           >
             Equipment
           </button>
-<div className="book-table-container">
-            <button 
-              className="book-table-btn"
-              onClick={() => alert('Booking functionality coming soon!')}
-              aria-label="Booking Slot"
-            >
-              Booking Slot
-            </button>
-          </div>
           
         
         </div>

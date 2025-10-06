@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/TopCategories.css";
 
 // Image paths - assuming images are in the public/assets/ directory
@@ -11,6 +12,7 @@ const PLACEHOLDER_IMAGES = {
 
 function TopCategory() {
   const [displayedCategories, setDisplayedCategories] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Create categories with proper image paths and descriptions
@@ -19,25 +21,29 @@ function TopCategory() {
         id: 1,
         item: "Coffee Machines",
         image: PLACEHOLDER_IMAGES.coffeeMachines,
-        description: "Professional grade coffee machines and equipment for high-volume operations"
+        description: "Professional grade coffee machines and equipment for high-volume operations",
+        categoryId: 'coffee-machines'
       },
       {
         id: 2,
         item: "Coffee Powders",
         image: PLACEHOLDER_IMAGES.coffeePowders,
-        description: "Premium wholesale coffee powders and blends for cafes, restaurants, and businesses"
+        description: "Premium wholesale coffee powders and blends for cafes, restaurants, and businesses",
+        categoryId: 'coffee-powders'
       },
       {
         id: 3,
         item: "Syrups & Sauces",
         image: PLACEHOLDER_IMAGES.syrups,
-        description: "Premium flavoring syrups and sauces to enhance your coffee experience"
+        description: "Premium flavoring syrups and sauces to enhance your coffee experience",
+        categoryId: 'syrups'
       },
       {
         id: 4,
         item: "Accessories",
         image: PLACEHOLDER_IMAGES.other,
-        description: "Essential coffee accessories and equipment for the perfect brew"
+        description: "Essential coffee accessories and equipment for the perfect brew",
+        categoryId: 'accessories'
       }
     ];
 
@@ -45,11 +51,9 @@ function TopCategory() {
   }, []);
 
   const handleExploreMore = (e) => {
-    e.preventDefault(); // Prevent default navigation
-    console.log('View Catalog button clicked');
-    // Removed the navigation to products page
-    // navigate('/product');
-    // window.scrollTo(0, 0);
+    e.preventDefault();
+    navigate('/products');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -69,7 +73,16 @@ function TopCategory() {
         </div>
         <div className="categories-grid">
           {displayedCategories.map((category, index) => (
-            <div key={index} className="category-card">
+            <div 
+              key={index} 
+              className="category-card"
+              onClick={() => {
+                if (category.categoryId) {
+                  navigate(`/products?category=${encodeURIComponent(category.categoryId)}`);
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+              }}
+            >
               <img
                 src={category.image}
                 alt={category.item}

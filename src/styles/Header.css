@@ -1,6 +1,19 @@
+/* Spacing tokens for header sizing */
+:root {
+  --header-height: 50px;              /* desktop header height (further reduced) */
+  --header-padding-y: 0.4rem;         /* desktop vertical padding (reduced) */
+  --header-container-x: 2rem;         /* desktop horizontal padding */
+
+  --header-height-md: 48px;           /* tablet header height (reduced) */
+  --header-padding-y-md: 0.35rem;     /* tablet vertical padding (reduced) */
+
+  --header-height-sm: 46px;           /* small mobile header height (reduced) */
+  --header-padding-y-sm: 0.35rem;     /* small mobile vertical padding (reduced) */
+}
+
 /* Add padding to body to account for fixed header */
 body {
-  padding-top: 60px; /* Match this with header height */
+  padding-top: var(--header-height); /* Keep in sync with header height */
 }
 
 /* Header Styles */
@@ -15,8 +28,8 @@ body {
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   z-index: 1000;
   transition: all 0.3s ease;
-  padding: 0.5rem 0;
-  height: 60px;
+  padding: var(--header-padding-y) 0;
+  height: var(--header-height);
   display: flex;
   align-items: center;
 }
@@ -29,11 +42,26 @@ body {
 .header-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 var(--header-container-x);
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
+}
+
+/* Ensure perfect vertical centering of nav text on desktop */
+@media (min-width: 769px) {
+  .header-container { height: 100%; }
+  .nav-links { height: 100%; }
+  .nav-link {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0; /* equal space top/bottom via flex centering */
+    transform: translateY(15px); /* slight nudge lower per request */
+  }
+  .logo-container { height: 100%; align-items: center; transform: translateY(15px); }
+  .book-table-container { height: 100%; display: flex; align-items: center; }
 }
 
 .logo {
@@ -59,7 +87,7 @@ body {
   display: flex;
   align-items: center;
   height: 100%;
-  padding-top: 2px; /* Small adjustment for visual alignment */
+  padding-top: 0; /* reset to center in reduced header */
 }
 
 .logo-link:hover .logo-text {
@@ -75,7 +103,7 @@ body {
 }
 
 .logo-image {
-  height: 40px;
+  height: 34px; /* reduced to keep content centered in shorter header */
   width: auto;
   object-fit: contain;
   transition: transform 0.3s ease;
@@ -100,10 +128,11 @@ body {
   font-weight: 500;
   font-size: 0.95rem;
   cursor: pointer;
-  padding: 0.5rem 0;
+  padding: 0.4rem 0; /* tighten to center text within reduced header */
   position: relative;
   transition: all 0.2s ease;
   font-family: 'Poppins', sans-serif;
+  line-height: 1.2; /* ensure vertical centering */
 }
 
 .nav-link::after {
@@ -140,7 +169,7 @@ body {
   background: linear-gradient(135deg, #001eff96 0%, #001eff 100%);
   color: white;
   text-decoration: none;
-  padding: 0.6rem 1.5rem;
+  padding: 0.45rem 1.25rem; /* slightly smaller to fit reduced header */
   border-radius: 8px;
   font-weight: 500;
   font-size: 0.9rem;
@@ -148,11 +177,12 @@ body {
   border: 1px solid transparent;
   font-family: 'Poppins', sans-serif;
   display: inline-block;
-  box-shadow: 0 2px 8px rgba(239, 131, 84, 0.2);
+  box-shadow: 0 2px 8px rgba(0, 30, 255, 0.12);
   text-transform: none;
   cursor: pointer;
   line-height: 1.5;
   letter-spacing: normal;
+  transform: translateY(15px)
 }
 
 /* .book-table-btn:hover {
@@ -161,9 +191,9 @@ body {
   transform: translateY(-1px);
 } */
 
-.book-table-btn:active {
-  transform: translateY(0);
-}
+/* .book-table-btn:active {
+  transform: translateY(-);
+} */
 
 /* Mobile Menu Button */
 .mobile-menu-button {
@@ -173,6 +203,7 @@ body {
   cursor: pointer;
   padding: 0.5rem;
   z-index: 1001;
+  transform: translateY(15px)
 }
 
 .hamburger {
@@ -182,6 +213,7 @@ body {
   height: 16px;
   position: relative;
   transition: all 0.3s ease;
+  transform: translateY(-1px)
 }
 
 .hamburger span {
@@ -192,6 +224,7 @@ body {
   border-radius: 1px;
   transition: all 0.3s ease;
   transform-origin: center;
+  transform: translateY(10px)
 }
 
 .hamburger span:nth-child(1) {
@@ -203,9 +236,7 @@ body {
   opacity: 1;
 }
 
-.hamburger span:nth-child(3) {
-  transform: translateY(10px);
-}
+
 
 .hamburger.open span:nth-child(1) {
   transform: translateY(5px) rotate(45deg);
@@ -223,12 +254,13 @@ body {
 /* Mobile Styles */
 @media (max-width: 768px) {
   body {
-    padding-top: 56px; /* Adjust padding for mobile header height */
+    padding-top: var(--header-height-md); /* Adjust padding for mobile header height */
   }
   
   .header {
-    height: 56px;
-    padding: 0.4rem 0;
+    height: var(--header-height-md);
+    padding: var(--header-padding-y-md) 0;
+    
   }
 
   .mobile-menu-button {
@@ -278,34 +310,55 @@ body {
     text-align: center;
     padding: 0.8rem 1.5rem;
     font-size: 0.95rem;
+    
   }
 
   .header-container {
     padding: 0 1rem;
   }
+  .logo-text{
+    transform: none;
+    
+  }
+
+  /* Align logo vertically with hamburger button on mobile */
+  .logo-container {
+    transform: translateY(15px);
+  }
 
   .logo-image {
     height: 35px;
+    transform: none
   }
 }
 
 @media (max-width: 480px) {
   body {
-    padding-top: 52px; /* Adjust padding for small mobile header height */
+    padding-top: var(--header-height-sm); /* Adjust padding for small mobile header height */
   }
   
   .header {
-    height: 52px;
+    height: var(--header-height-sm);
   }
 
   .logo-image {
     height: 32px;
+    transform: none
+  }
+
+  /* Keep alignment consistent on very small screens */
+  .logo-container {
+    transform: translateY(15px);
   }
 
   .book-table-btn {
     padding: 0.7rem 1.25rem;
     font-size: 0.9rem;
   }
+}
+.logo-text{
+  transform: none;
+  
 }
 
 /* Reduced motion for accessibility */
