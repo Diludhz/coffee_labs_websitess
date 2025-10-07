@@ -6,7 +6,6 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
 import TopCategories from './components/TopCategories';
-import EquipmentSection from './components/EquipmentSection';
 import Products from './components/Products';
 import SuccessPartners from './components/SuccessPartners';
 import AppDownload from './components/AppDownload';
@@ -41,9 +40,6 @@ const MainContent = () => {
           <TopCategories />
         </section>
         <SuccessPartners />
-        <section id="equipment">
-          <EquipmentSection />
-        </section>
         <AppDownload />
         <ImageStas />
       </main>

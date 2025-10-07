@@ -91,7 +91,7 @@ body {
 }
 
 .logo-link:hover .logo-text {
-  color: #EF8354;
+  color: #007BFF;
 }
 
 /* Hide the fallback text by default */
@@ -142,7 +142,7 @@ body {
   left: 0;
   width: 0;
   height: 2px;
-  background: linear-gradient(90deg, #EF8354, #FF9F6D);
+  background: linear-gradient(90deg, #007BFF, #17A2B8);
   transition: width 0.3s ease;
 }
 
@@ -152,11 +152,11 @@ body {
 }
 
 .nav-link:hover {
-  color: #EF8354;
+  color: #007BFF;
 }
 
 .nav-link.active {
-  color: #EF8354;
+  color: #007BFF;
   font-weight: 600;
 }
 

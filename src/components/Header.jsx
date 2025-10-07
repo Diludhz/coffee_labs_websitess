@@ -62,7 +62,7 @@ const Header = ({ cart = [] }) => {
 
   // Update active link based on scroll position
   useEffect(() => {
-    const sections = ['home', 'about', 'products', 'equipment'];
+    const sections = ['home', 'about', 'products'];
     
     const handleScroll = () => {
       if (location.pathname !== '/') return;
@@ -168,23 +168,12 @@ const Header = ({ cart = [] }) => {
             Products
           </Link>
           
-         
-          
-          <button 
-            className={`nav-link ${activeLink === 'equipment' ? 'active' : ''}`}
-            onClick={() => {
-              scrollToSection('equipment');
-              handleNavClick('equipment');
-            }}
-          >
-            Equipment
-          </button>
           
         
         </div>
 
         <button 
-          className="mobile-menu-button" 
+          className="mobile-menu-button"
           onClick={toggleMenu}
           aria-label="Toggle menu"
           aria-expanded={isOpen}
