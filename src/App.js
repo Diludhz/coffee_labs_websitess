@@ -7,6 +7,7 @@ import Hero from './components/Hero';
 import About from './components/About';
 import TopCategories from './components/TopCategories';
 import Products from './components/Products';
+import ProductDetailsPage from './components/ProductDetailsPage';
 import SuccessPartners from './components/SuccessPartners';
 import AppDownload from './components/AppDownload';
 import ImageStas from './components/ImageStas';
@@ -81,6 +82,14 @@ function App() {
                 <Products onAddToCart={addToCart} />
               </ErrorBoundary>
             } 
+          />
+          <Route 
+            path="/products/:productId" 
+            element={
+              <ErrorBoundary>
+                <ProductDetailsPage onAddToCart={addToCart} />
+              </ErrorBoundary>
+            }
           />
         </Routes>
       </div>

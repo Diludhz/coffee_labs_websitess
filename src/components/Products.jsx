@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { 
   FaArrowRight, 
   FaArrowLeft,
@@ -24,6 +25,7 @@ import productsData from '../data/products.json';
 import '../styles/Products.css';
 
 const Products = ({ onAddToCart }) => {
+  const navigate = useNavigate();
   const [showFilters, setShowFilters] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
@@ -486,6 +488,15 @@ const Products = ({ onAddToCart }) => {
                             <div 
                               key={product.id} 
                               className="product-card"
+                              onClick={() => navigate(`/products/${encodeURIComponent(String(product.id))}`)}
+                              role="button"
+                              tabIndex={0}
+                              onKeyDown={(e) => {
+                                if (e.key === 'Enter' || e.key === ' ') {
+                                  e.preventDefault();
+                                  navigate(`/products/${encodeURIComponent(String(product.id))}`);
+                                }
+                              }}
                             >
                               {/* Product Image with Enhanced Overlay */}
                               <div className="product-image">
@@ -502,7 +513,7 @@ const Products = ({ onAddToCart }) => {
                               {/* Enhanced Product Details */}
                               <div className="product-details">
                                 <div className="product-header">
-                                  <h3 className="product-title">{product.title}</h3>
+                                  <h1 className="product-title">{product.title}</h1>
                                   {product.subtitle && <p className="product-subtitle">{product.subtitle}</p>}
                                   <div className="product-rating">
                                     {[...Array(5)].map((_, i) => (
@@ -517,7 +528,7 @@ const Products = ({ onAddToCart }) => {
                                 
                                 {/* Price and Add to Cart Section */}
                                 <div className="product-footer">
-                                  <div className="price-container">
+                                  <div className="price-container">reate a modern product price layout where the real price appears first, followed by a small space, and then the old price shown with a strikethrough. The currency symbol should not be a dollar sign but instead use the Saudi Riyal SVG icon from the path public/assets/saudi_riyal.svg. Ensure there is clear horizontal spacing between the two prices, with proper alignment for a professional look. The real price should appear bold and slightly larger, while the old price should be lighter in color and smaller in size. The overall design should be simple, clean, and visually balanced, suitable for an e-commerce product display.
                                   {hasDiscount ? (
                                     <>
                                       <span className="original-price">
